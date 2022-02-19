@@ -2,10 +2,6 @@ baseURL = 'https://jantari.github.io/lsuclient-docs'
 languageCode = 'en-us'
 title = 'LSUClient Documentation'
 
-[module]
-[[module.imports]]
-  path = 'github.com/alex-shpak/hugo-book'
-
 theme = 'hugo-book'
 
 [params]
