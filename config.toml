@@ -1,0 +1,27 @@
+baseURL = 'https://jantari.github.io/lsuclient-docs'
+languageCode = 'en-us'
+title = 'LSUClient Documentation'
+theme = 'book'
+
+[module]
+[[module.imports]]
+  path = 'github.com/alex-shpak/hugo-book'
+
+[params]
+  BookTheme = 'auto'
+
+[menu]
+[[menu.after]]
+  name = "🌐GitHub"
+  url = "https://github.com/jantari/LSUClient"
+  weight = 10
+
+[[menu.after]]
+  name = "🌐 PowerShell Gallery"
+  url = "https://www.powershellgallery.com/packages/LSUClient/"
+  weight = 20
+
+[[menu.after]]
+  name = "🌐 Hugo Book Theme"
+  url = "https://github.com/alex-shpak/hugo-book"
+  weight = 30
