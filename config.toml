@@ -7,6 +7,10 @@ theme = 'hugo-book'
 [params]
   BookTheme = 'auto'
 
+[markup]
+  [markup.highlight]
+    style = 'doom-one2'
+
 [menu]
 [[menu.after]]
   name = "🌐GitHub"
