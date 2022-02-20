@@ -1,6 +1,7 @@
 ---
 title: Examples
 weight: 20
+bookToc: false
 ---
 
 # Examples

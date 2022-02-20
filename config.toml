@@ -9,11 +9,11 @@ theme = 'hugo-book'
 
 [markup]
   [markup.highlight]
-    style = 'doom-one2'
+    style = 'nord'
 
 [menu]
 [[menu.after]]
-  name = "🌐GitHub"
+  name = "🌐 GitHub"
   url = "https://github.com/jantari/LSUClient"
   weight = 10
 
@@ -23,6 +23,7 @@ theme = 'hugo-book'
   weight = 20
 
 [[menu.after]]
-  name = "🌐 Hugo Book Theme"
+#  name = "🌐 Hugo Book Theme"
+  name = "🔗 Hugo Book Theme"
   url = "https://github.com/alex-shpak/hugo-book"
   weight = 30
