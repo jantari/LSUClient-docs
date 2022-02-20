@@ -1,10 +1,13 @@
 ---
-title: Examples
+title: Basic Examples
 weight: 20
 bookToc: false
 ---
 
-# Examples
+# Basic Examples
+
+These are some examples to try out.
+For all available parameters and guidance on how to use them run `Get-Help -Detailed` on the functions in this module.
 
 ### Get available updates
 ```powershell
@@ -41,11 +44,10 @@ The default logic is equivalent to:
 
 ### Download drivers for another computer
 ```powershell
-Get-LSUpdate -Model 20LS -All | Save-LSUpdate -Path 'C:\Drivers\20LS' -ShowProgress
+Get-LSUpdate -Model '20LS' -All | Save-LSUpdate -Path 'C:\Drivers\20LS' -ShowProgress
 ```
 Using the `-Model` parameter of `Get-LSUpdate` you can retrieve packages for another computer model.
 In this case you almost always want to use `-All` too so that the packages found are not filtered against your computer and all packages are downloaded.
 
----
-For more details, available parameters and guidance on how to use them run `Get-Help -Detailed` on the functions in this module.
+Ever since LSUClient Version 1.3.3 you can also pass full-length MTM/model names such as `20K70000GE` to this parameter.
 
