@@ -1,0 +1,161 @@
+<!doctype html><html lang=en-us dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Examples #  Get available updates #  Get-LSUpdate Get and install available updates #  $updates = Get-LSUpdate $updates | Install-LSUpdate -Verbose Install only packages that can be installed silently and non-interactively #  $updates = Get-LSUpdate | Where-Object { $_.Installer.Unattended } $updates | Save-LSUpdate -Verbose $updates | Install-LSUpdate -Verbose Filtering out non-unattended packages like this is strongly recommended when using this module in MDT, SCCM, PDQ, remote execution via PowerShell Remoting, ssh or any other situation in which you run these commands remotely or as part of an automated process.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Examples">
+<meta property="og:description" content="Examples #  Get available updates #  Get-LSUpdate Get and install available updates #  $updates = Get-LSUpdate $updates | Install-LSUpdate -Verbose Install only packages that can be installed silently and non-interactively #  $updates = Get-LSUpdate | Where-Object { $_.Installer.Unattended } $updates | Save-LSUpdate -Verbose $updates | Install-LSUpdate -Verbose Filtering out non-unattended packages like this is strongly recommended when using this module in MDT, SCCM, PDQ, remote execution via PowerShell Remoting, ssh or any other situation in which you run these commands remotely or as part of an automated process.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jantari.github.io/LSUClient-docs/docs/getting-started/examples/"><meta property="article:section" content="docs">
+<title>Examples | LSUClient Documentation</title>
+<link rel=manifest href=/LSUClient-docs/manifest.json>
+<link rel=icon href=/LSUClient-docs/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/LSUClient-docs/book.min.cc60b8f4ed6df7bbbe33ac65c20a4ddb8308b39c5c2227a8c78f8e469c85b2b4.css integrity="sha256-zGC49O1t97u+M6xlwgpN24MIs5xcIieox4+ORpyFsrQ=" crossorigin=anonymous>
+<script defer src=/LSUClient-docs/flexsearch.min.js></script>
+<script defer src=/LSUClient-docs/en.search.min.d71f5a72ab33c5f3aba34678bcfbb487250d4e78e93d293a719a789e1ab10d83.js integrity="sha256-1x9acqszxfOro0Z4vPu0hyUNTnjpPSk6cZp4nhqxDYM=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/LSUClient-docs/><span>LSUClient Documentation</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li>
+<a href=/LSUClient-docs/docs/getting-started/examples/ class=active>Examples</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href=https://github.com/jantari/LSUClient target=_blank rel=noopener>
+🌐GitHub
+</a>
+</li>
+<li>
+<a href=https://www.powershellgallery.com/packages/LSUClient/ target=_blank rel=noopener>
+🌐 PowerShell Gallery
+</a>
+</li>
+<li>
+<a href=https://github.com/alex-shpak/hugo-book target=_blank rel=noopener>
+🌐 Hugo Book Theme
+</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/LSUClient-docs/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Examples</strong>
+<label for=toc-control>
+<img src=/LSUClient-docs/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#get-available-updates>Get available updates</a></li>
+<li><a href=#get-and-install-available-updates>Get and install available updates</a></li>
+<li><a href=#install-only-packages-that-can-be-installed-silently-and-non-interactively>Install only packages that can be installed silently and non-interactively</a></li>
+<li><a href=#get-all-available-packages>Get all available packages</a></li>
+<li><a href=#download-drivers-for-another-computer>Download drivers for another computer</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h1 id=examples>
+Examples
+<a class=anchor href=#examples>#</a>
+</h1>
+<h3 id=get-available-updates>
+Get available updates
+<a class=anchor href=#get-available-updates>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#e5c07b>Get-LSUpdate</span>
+</code></pre></div><h3 id=get-and-install-available-updates>
+Get and install available updates
+<a class=anchor href=#get-and-install-available-updates>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>=</span> <span style=color:#e5c07b>Get-LSUpdate</span>
+<span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>|</span> <span style=color:#e5c07b>Install-LSUpdate</span> <span style=color:#aa89ea>-Verbose</span>
+</code></pre></div><h3 id=install-only-packages-that-can-be-installed-silently-and-non-interactively>
+Install only packages that can be installed silently and non-interactively
+<a class=anchor href=#install-only-packages-that-can-be-installed-silently-and-non-interactively>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>=</span> <span style=color:#e5c07b>Get-LSUpdate</span> <span style=color:#abb2bf>|</span> <span style=color:#e5c07b>Where-Object</span> <span style=color:#abb2bf>{</span> <span style=color:#dcaeea>$_</span><span style=color:#abb2bf>.</span><span style=color:#aa89ea>Installer</span><span style=color:#abb2bf>.</span><span style=color:#aa89ea>Unattended</span> <span style=color:#abb2bf>}</span>
+<span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>|</span> <span style=color:#e5c07b>Save-LSUpdate</span> <span style=color:#aa89ea>-Verbose</span>
+<span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>|</span> <span style=color:#e5c07b>Install-LSUpdate</span> <span style=color:#aa89ea>-Verbose</span>
+</code></pre></div><p>Filtering out non-unattended packages like this is strongly recommended when using this module in MDT, SCCM, PDQ,
+remote execution via PowerShell Remoting, ssh or any other situation in which you run these commands remotely
+or as part of an automated process. Packages with installers that are not unattended may force reboots or
+attempt to start a GUI setup on the machine and, if successful, halt until someone clicks through the dialogs.</p>
+<h3 id=get-all-available-packages>
+Get all available packages
+<a class=anchor href=#get-all-available-packages>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>=</span> <span style=color:#e5c07b>Get-LSUpdate</span> <span style=color:#aa89ea>-All</span>
+</code></pre></div><p>By default, <code>Get-LSUpdate</code> only returns &ldquo;needed&rdquo; updates. Needed updates are those that are applicable to
+the system and not yet installed. If you want to retrieve all available packages instead, use <code>Get-LSUpdate -All</code>.
+To filter out unneeded packages later, just look at the <code>IsApplicable</code> and <code>IsInstalled</code> properties.
+The default logic is equivalent to:
+<code>Get-LSUpdate -All | Where-Object { $_.IsApplicable -and -not $_.IsInstalled }</code></p>
+<h3 id=download-drivers-for-another-computer>
+Download drivers for another computer
+<a class=anchor href=#download-drivers-for-another-computer>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#e5c07b>Get-LSUpdate</span> <span style=color:#aa89ea>-Model</span> <span style=color:#aa89ea>20LS</span> <span style=color:#aa89ea>-All</span> <span style=color:#abb2bf>|</span> <span style=color:#e5c07b>Save-LSUpdate</span> <span style=color:#aa89ea>-Path</span> <span style=color:#98c379>&#39;C:\Drivers\20LS&#39;</span> <span style=color:#aa89ea>-ShowProgress</span>
+</code></pre></div><p>Using the <code>-Model</code> parameter of <code>Get-LSUpdate</code> you can retrieve packages for another computer model.
+In this case you almost always want to use <code>-All</code> too so that the packages found are not filtered against your computer and all packages are downloaded.</p>
+<hr>
+<p>For more details, available parameters and guidance on how to use them run <code>Get-Help -Detailed</code> on the functions in this module.</p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#get-available-updates>Get available updates</a></li>
+<li><a href=#get-and-install-available-updates>Get and install available updates</a></li>
+<li><a href=#install-only-packages-that-can-be-installed-silently-and-non-interactively>Install only packages that can be installed silently and non-interactively</a></li>
+<li><a href=#get-all-available-packages>Get all available packages</a></li>
+<li><a href=#download-drivers-for-another-computer>Download drivers for another computer</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
