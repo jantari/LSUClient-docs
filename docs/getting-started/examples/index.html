@@ -13,7 +13,7 @@
 <link rel=icon href=/LSUClient-docs/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/LSUClient-docs/book.min.cc60b8f4ed6df7bbbe33ac65c20a4ddb8308b39c5c2227a8c78f8e469c85b2b4.css integrity="sha256-zGC49O1t97u+M6xlwgpN24MIs5xcIieox4+ORpyFsrQ=" crossorigin=anonymous>
 <script defer src=/LSUClient-docs/flexsearch.min.js></script>
-<script defer src=/LSUClient-docs/en.search.min.cc58991a7ef5369d90be5cf16a116407c5d7b4d02e7d35dc57110ca728c233c1.js integrity="sha256-zFiZGn71Np2QvlzxahFkB8XXtNAufTXcVxEMpyjCM8E=" crossorigin=anonymous></script>
+<script defer src=/LSUClient-docs/en.search.min.be44ff4e7423036ae10c8302df195c1ba49e8da5e01b0acd9d855af638c817ea.js integrity="sha256-vkT/TnQjA2rhDIMC3xlcG6SejaXgGwrNnYVa9jjIF+o=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -38,13 +38,16 @@
 <li>
 <a href=/LSUClient-docs/docs/getting-started/examples/ class=active>Examples</a>
 </li>
+<li>
+<a href=/LSUClient-docs/docs/getting-started/bios-and-firmware/>BIOS/UEFI and Firmware updates</a>
+</li>
 </ul>
 </li>
 </ul>
 <ul>
 <li>
 <a href=https://github.com/jantari/LSUClient target=_blank rel=noopener>
-🌐GitHub
+🌐 GitHub
 </a>
 </li>
 <li>
@@ -54,7 +57,7 @@
 </li>
 <li>
 <a href=https://github.com/alex-shpak/hugo-book target=_blank rel=noopener>
-🌐 Hugo Book Theme
+🔗 Hugo Book Theme
 </a>
 </li>
 </ul>
@@ -70,24 +73,8 @@
 </label>
 <strong>Examples</strong>
 <label for=toc-control>
-<img src=/LSUClient-docs/svg/toc.svg class=book-icon alt="Table of Contents">
 </label>
 </div>
-<aside class="hidden clearfix">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#get-available-updates>Get available updates</a></li>
-<li><a href=#get-and-install-available-updates>Get and install available updates</a></li>
-<li><a href=#install-only-packages-that-can-be-installed-silently-and-non-interactively>Install only packages that can be installed silently and non-interactively</a></li>
-<li><a href=#get-all-available-packages>Get all available packages</a></li>
-<li><a href=#download-drivers-for-another-computer>Download drivers for another computer</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</aside>
 </header>
 <article class=markdown><h1 id=examples>
 Examples
@@ -97,20 +84,20 @@ Examples
 Get available updates
 <a class=anchor href=#get-available-updates>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#e5c07b>Get-LSUpdate</span>
+<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#81a1c1>Get-LSUpdate</span>
 </code></pre></div><h3 id=get-and-install-available-updates>
 Get and install available updates
 <a class=anchor href=#get-and-install-available-updates>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>=</span> <span style=color:#e5c07b>Get-LSUpdate</span>
-<span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>|</span> <span style=color:#e5c07b>Install-LSUpdate</span> <span style=color:#aa89ea>-Verbose</span>
+<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span>
+$updates <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Install-LSUpdate</span> -Verbose
 </code></pre></div><h3 id=install-only-packages-that-can-be-installed-silently-and-non-interactively>
 Install only packages that can be installed silently and non-interactively
 <a class=anchor href=#install-only-packages-that-can-be-installed-silently-and-non-interactively>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>=</span> <span style=color:#e5c07b>Get-LSUpdate</span> <span style=color:#abb2bf>|</span> <span style=color:#e5c07b>Where-Object</span> <span style=color:#abb2bf>{</span> <span style=color:#dcaeea>$_</span><span style=color:#abb2bf>.</span><span style=color:#aa89ea>Installer</span><span style=color:#abb2bf>.</span><span style=color:#aa89ea>Unattended</span> <span style=color:#abb2bf>}</span>
-<span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>|</span> <span style=color:#e5c07b>Save-LSUpdate</span> <span style=color:#aa89ea>-Verbose</span>
-<span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>|</span> <span style=color:#e5c07b>Install-LSUpdate</span> <span style=color:#aa89ea>-Verbose</span>
+<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>Installer<span style=color:#eceff4>.</span>Unattended <span style=color:#eceff4>}</span>
+$updates <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Save-LSUpdate</span> -Verbose
+$updates <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Install-LSUpdate</span> -Verbose
 </code></pre></div><p>Filtering out non-unattended packages like this is strongly recommended when using this module in MDT, SCCM, PDQ,
 remote execution via PowerShell Remoting, ssh or any other situation in which you run these commands remotely
 or as part of an automated process. Packages with installers that are not unattended may force reboots or
@@ -119,7 +106,7 @@ attempt to start a GUI setup on the machine and, if successful, halt until someo
 Get all available packages
 <a class=anchor href=#get-all-available-packages>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#dcaeea>$updates</span> <span style=color:#abb2bf>=</span> <span style=color:#e5c07b>Get-LSUpdate</span> <span style=color:#aa89ea>-All</span>
+<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> -All
 </code></pre></div><p>By default, <code>Get-LSUpdate</code> only returns &ldquo;needed&rdquo; updates. Needed updates are those that are applicable to
 the system and not yet installed. If you want to retrieve all available packages instead, use <code>Get-LSUpdate -All</code>.
 To filter out unneeded packages later, just look at the <code>IsApplicable</code> and <code>IsInstalled</code> properties.
@@ -129,7 +116,7 @@ The default logic is equivalent to:
 Download drivers for another computer
 <a class=anchor href=#download-drivers-for-another-computer>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#e5c07b>Get-LSUpdate</span> <span style=color:#aa89ea>-Model</span> <span style=color:#aa89ea>20LS</span> <span style=color:#aa89ea>-All</span> <span style=color:#abb2bf>|</span> <span style=color:#e5c07b>Save-LSUpdate</span> <span style=color:#aa89ea>-Path</span> <span style=color:#98c379>&#39;C:\Drivers\20LS&#39;</span> <span style=color:#aa89ea>-ShowProgress</span>
+<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#81a1c1>Get-LSUpdate</span> -Model 20LS -All <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Save-LSUpdate</span> -Path <span style=color:#a3be8c>&#39;C:\Drivers\20LS&#39;</span> -ShowProgress
 </code></pre></div><p>Using the <code>-Model</code> parameter of <code>Get-LSUpdate</code> you can retrieve packages for another computer model.
 In this case you almost always want to use <code>-All</code> too so that the packages found are not filtered against your computer and all packages are downloaded.</p>
 <hr>
@@ -144,23 +131,6 @@ In this case you almost always want to use <code>-All</code> too so that the pac
 </div>
 <label for=menu-control class="hidden book-menu-overlay"></label>
 </div>
-<aside class=book-toc>
-<div class=book-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#get-available-updates>Get available updates</a></li>
-<li><a href=#get-and-install-available-updates>Get and install available updates</a></li>
-<li><a href=#install-only-packages-that-can-be-installed-silently-and-non-interactively>Install only packages that can be installed silently and non-interactively</a></li>
-<li><a href=#get-all-available-packages>Get all available packages</a></li>
-<li><a href=#download-drivers-for-another-computer>Download drivers for another computer</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</aside>
 </main>
 </body>
 </html>
