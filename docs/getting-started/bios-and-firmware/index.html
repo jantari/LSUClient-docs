@@ -10,14 +10,12 @@ Like with any other package, those for which a silent installation is supported 
 Like with any other package, those for which a silent installation is supported will have their .Installer.Unattended property set to $True. If you get a BIOS/UEFI update for which .Installer.Unattended is $False, that means it uses a type of installer/flasher for which either no silent install options exist or for which LSUClient doesn&rsquo;t support performing silent installs yet.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jantari.github.io/LSUClient-docs/docs/getting-started/bios-and-firmware/"><meta property="article:section" content="docs">
-<title>BIOS/UEFI and Firmware updates | LSUClient Documentation</title>
-<link rel=manifest href=/LSUClient-docs/manifest.json>
+<title>BIOS/UEFI and Firmware updates | LSUClient Documentation</title><link rel=manifest href=/LSUClient-docs/manifest.json>
 <link rel=icon href=/LSUClient-docs/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/LSUClient-docs/book.min.cc60b8f4ed6df7bbbe33ac65c20a4ddb8308b39c5c2227a8c78f8e469c85b2b4.css integrity="sha256-zGC49O1t97u+M6xlwgpN24MIs5xcIieox4+ORpyFsrQ=" crossorigin=anonymous>
 <script defer src=/LSUClient-docs/flexsearch.min.js></script>
-<script defer src=/LSUClient-docs/en.search.min.feac99ee4fb059d48f79ad9d3472c5781f1421a8805896d2c9ff6857db17e45f.js integrity="sha256-/qyZ7k+wWdSPea2dNHLFeB8UIaiAWJbSyf9oV9sX5F8=" crossorigin=anonymous></script>
-</head>
-<body dir=ltr>
+<script defer src=/LSUClient-docs/en.search.min.f38fd21d92b0b9be4d9c1f2b03cb6bb31277dc5494fdc84cfd39c7dd4ba0a5b1.js integrity="sha256-84/SHZKwub5NnB8rA8trsxJ33FSU/chM/TnH3UugpbE=" crossorigin=anonymous></script>
+</head><body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control>
 <main class="container flex">
@@ -27,55 +25,37 @@ Like with any other package, those for which a silent installation is supported 
 <h2 class=book-brand>
 <a class="flex align-center" href=/LSUClient-docs/><span>LSUClient Documentation</span>
 </a>
-</h2>
-<div class=book-search>
+</h2><div class=book-search>
 <input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
-<div class="book-search-spinner hidden"></div>
-<ul id=book-search-results></ul>
-</div>
-<ul>
+<div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul>
 <li class=book-section-flat>
 <span>Getting Started</span>
 <ul>
 <li>
 <a href=/LSUClient-docs/docs/getting-started/examples/>Basic Examples</a>
-</li>
-<li>
+</li><li>
 <a href=/LSUClient-docs/docs/getting-started/best-practices/>Best Practices</a>
-</li>
-<li>
+</li><li>
 <a href=/LSUClient-docs/docs/getting-started/bios-and-firmware/ class=active>BIOS/UEFI and Firmware updates</a>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
+</li></ul></li></ul><ul>
 <li>
 <a href=https://github.com/jantari/LSUClient target=_blank rel=noopener>
-🌐 GitHub
+🔗 GitHub
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://github.com/jantari/LSUClient/releases target=_blank rel=noopener>
-🌐 Release Notes
+🔗 Release Notes
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://www.powershellgallery.com/packages/LSUClient/ target=_blank rel=noopener>
-🌐 PowerShell Gallery
+🔗 PowerShell Gallery
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://github.com/alex-shpak/hugo-book target=_blank rel=noopener>
 🔗 Hugo Book Theme
 </a>
-</li>
-</ul>
-</nav>
-<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-</div>
-</aside>
-<div class=book-page>
+</li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div></aside><div class=book-page>
 <header class=book-header>
 <div class="flex align-center justify-between">
 <label for=menu-control>
@@ -85,171 +65,84 @@ Like with any other package, those for which a silent installation is supported 
 <label for=toc-control>
 <img src=/LSUClient-docs/svg/toc.svg class=book-icon alt="Table of Contents">
 </label>
-</div>
-<aside class="hidden clearfix">
+</div><aside class="hidden clearfix">
 <nav id=TableOfContents>
 <ul>
-<li><a href=#handling-reboots>Handling reboots</a></li>
-<li><a href=#savebiosupdateinfotoregistry-parameter>SaveBIOSUpdateInfoToRegistry Parameter</a></li>
-<li><a href=#excluding-bios-andor-firmware-updates>Excluding BIOS and/or firmware updates</a></li>
-<li><a href=#recommended-reading>Recommended reading</a></li>
-</ul>
-</nav>
-</aside>
-</header>
-<article class=markdown><h1 id=biosuefi-and-other-firmware-updates>
+<li><a href=#handling-reboots>Handling reboots</a></li><li><a href=#savebiosupdateinfotoregistry-parameter>SaveBIOSUpdateInfoToRegistry Parameter</a></li><li><a href=#excluding-bios-andor-firmware-updates>Excluding BIOS and/or firmware updates</a></li><li><a href=#recommended-reading>Recommended reading</a></li></ul></nav></aside></header><article class=markdown><h1 id=biosuefi-and-other-firmware-updates>
 BIOS/UEFI and other firmware updates
 <a class=anchor href=#biosuefi-and-other-firmware-updates>#</a>
-</h1>
-<p>LSUClient will install BIOS/UEFI updates silently when possible.</p>
-<p>Like with any other package, those for which a silent installation is supported will have their
+</h1><p>LSUClient will install BIOS/UEFI updates silently when possible.</p><p>Like with any other package, those for which a silent installation is supported will have their
 <code>.Installer.Unattended</code> property set to <code>$True</code>. If you get a BIOS/UEFI update for which
 <code>.Installer.Unattended</code> is <code>$False</code>, that means it uses a type of installer/flasher for which
-either no silent install options exist or for which LSUClient doesn&rsquo;t support performing silent installs yet.</p>
-<p>When you install such a non-silent package its setup routine will be invoked with the default arguments in the same way System Update would.<br>
-Likely this will mean a graphical wizard will come up and wait for you to confirm or cancel the update.</p>
-<h2 id=handling-reboots>
+either no silent install options exist or for which LSUClient doesn&rsquo;t support performing silent installs yet.</p><p>When you install such a non-silent package its setup routine will be invoked with the default arguments in the same way System Update would.<br>
+Likely this will mean a graphical wizard will come up and wait for you to confirm or cancel the update.</p><h2 id=handling-reboots>
 Handling reboots
 <a class=anchor href=#handling-reboots>#</a>
-</h2>
-<p>It is important to know that some Lenovo computers require a reboot to apply BIOS updates
+</h2><p>It is important to know that some Lenovo computers require a reboot to apply BIOS updates
 while other models require a shutdown - the BIOS will then wake the machine from the power-off state,
 apply the update and boot back into Windows. Other, non-BIOS firmware updates typically always require a reboot.
 So as to not interrupt a deployment or someone working, this module will never initiate reboots
-or shutdowns on its own, however it&rsquo;s easy for you to:</p>
-<ol>
+or shutdowns on its own, however it&rsquo;s easy for you to:</p><ol>
 <li>
-<p>Capture the <code>PackageInstallResult</code> objects returned by <code>Install-LSUpdate</code>, e.g.:</p>
-<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#8fbcbb>[array]</span>$results <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Install-LSUpdate</span> -Package $updates
-</code></pre></div></li>
-<li>
-<p>Then test for the <code>PendingAction</code> values <code>REBOOT_MANDATORY</code> or <code>SHUTDOWN</code> and handle them in your script:</p>
-<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#81a1c1;font-weight:700>if</span> <span style=color:#eceff4>(</span>$results<span style=color:#eceff4>.</span>PendingAction <span style=color:#81a1c1>-contains</span> <span style=color:#a3be8c>&#39;REBOOT_MANDATORY&#39;</span><span style=color:#eceff4>)</span> <span style=color:#eceff4>{</span>
-    <span style=color:#616e87;font-style:italic># reboot immediately or set a marker for yourself to perform the reboot shortly</span>
-<span style=color:#eceff4>}</span>
-<span style=color:#81a1c1;font-weight:700>if</span> <span style=color:#eceff4>(</span>$results<span style=color:#eceff4>.</span>PendingAction <span style=color:#81a1c1>-contains</span> <span style=color:#a3be8c>&#39;SHUTDOWN&#39;</span><span style=color:#eceff4>)</span> <span style=color:#eceff4>{</span>
-    <span style=color:#616e87;font-style:italic># shutdown immediately or set a marker for yourself to perform the shutdown shortly</span>
-<span style=color:#eceff4>}</span>
-</code></pre></div><p>If you prefer to loop through the updates one-by-one and handle their result immediately, you can use <code>-eq</code> or a switch statement:</p>
-<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#81a1c1;font-weight:700>foreach</span> <span style=color:#eceff4>(</span>$update <span style=color:#81a1c1;font-weight:700>in</span> $updates<span style=color:#eceff4>)</span> <span style=color:#eceff4>{</span>
-    $result <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Install-LSUpdate</span> -Package $update
-    <span style=color:#81a1c1;font-weight:700>switch</span> <span style=color:#eceff4>(</span>$result<span style=color:#eceff4>.</span>PendingAction<span style=color:#eceff4>)</span> <span style=color:#eceff4>{</span>
-        <span style=color:#616e87;font-style:italic># your logic here</span>
-    <span style=color:#eceff4>}</span>
-<span style=color:#eceff4>}</span>
-</code></pre></div></li>
-</ol>
-<h2 id=savebiosupdateinfotoregistry-parameter>
+<p>Capture the <code>PackageInstallResult</code> objects returned by <code>Install-LSUpdate</code>, e.g.:</p><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#8fbcbb>[array]</span>$results <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Install-LSUpdate</span> -Package $updates
+</span></span></code></pre></div></li><li>
+<p>Then test for the <code>PendingAction</code> values <code>REBOOT_MANDATORY</code> or <code>SHUTDOWN</code> and handle them in your script:</p><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#81a1c1;font-weight:700>if</span> <span style=color:#eceff4>(</span>$results<span style=color:#eceff4>.</span>PendingAction <span style=color:#81a1c1>-contains</span> <span style=color:#a3be8c>&#39;REBOOT_MANDATORY&#39;</span><span style=color:#eceff4>)</span> <span style=color:#eceff4>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#616e87;font-style:italic># reboot immediately or set a marker for yourself to perform the reboot shortly</span>
+</span></span><span style=display:flex><span><span style=color:#eceff4>}</span>
+</span></span><span style=display:flex><span><span style=color:#81a1c1;font-weight:700>if</span> <span style=color:#eceff4>(</span>$results<span style=color:#eceff4>.</span>PendingAction <span style=color:#81a1c1>-contains</span> <span style=color:#a3be8c>&#39;SHUTDOWN&#39;</span><span style=color:#eceff4>)</span> <span style=color:#eceff4>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#616e87;font-style:italic># shutdown immediately or set a marker for yourself to perform the shutdown shortly</span>
+</span></span><span style=display:flex><span><span style=color:#eceff4>}</span>
+</span></span></code></pre></div><p>If you prefer to loop through the updates one-by-one and handle their result immediately, you can use <code>-eq</code> or a switch statement:</p><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#81a1c1;font-weight:700>foreach</span> <span style=color:#eceff4>(</span>$update <span style=color:#81a1c1;font-weight:700>in</span> $updates<span style=color:#eceff4>)</span> <span style=color:#eceff4>{</span>
+</span></span><span style=display:flex><span>    $result <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Install-LSUpdate</span> -Package $update
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1;font-weight:700>switch</span> <span style=color:#eceff4>(</span>$result<span style=color:#eceff4>.</span>PendingAction<span style=color:#eceff4>)</span> <span style=color:#eceff4>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#616e87;font-style:italic># your logic here</span>
+</span></span><span style=display:flex><span>    <span style=color:#eceff4>}</span>
+</span></span><span style=display:flex><span><span style=color:#eceff4>}</span>
+</span></span></code></pre></div></li></ol><h2 id=savebiosupdateinfotoregistry-parameter>
 SaveBIOSUpdateInfoToRegistry Parameter
 <a class=anchor href=#savebiosupdateinfotoregistry-parameter>#</a>
-</h2>
-<blockquote class="book-hint danger">
-<p>This parameter is deprecated and only documented for the sake of helping move existing scripts away from it.</p>
-<p>It may be removed in a future major release of LSUClient. Use the technique described <a href=#handling-reboots>above</a> instead.</p>
-</blockquote>
-<p>There is also a <code>-SaveBIOSUpdateInfoToRegistry</code> parameter on <code>Install-LSUpdate</code>.</p>
-<p>Prior to version 1.4.0, this used to be the only way for LSUClient to communicate a required power cycle back to you.</p>
-<p>When <code>Install-LSUpdate</code> is called with this parameter and it successfully installs a BIOS update,
+</h2><blockquote class="book-hint danger">
+<p>This parameter is deprecated and only documented for the sake of helping move existing scripts away from it.</p><p>It may be removed in a future major release of LSUClient. Use the technique described <a href=#handling-reboots>above</a> instead.</p></blockquote><p>There is also a <code>-SaveBIOSUpdateInfoToRegistry</code> parameter on <code>Install-LSUpdate</code>.</p><p>Prior to version 1.4.0, this used to be the only way for LSUClient to communicate a required power cycle back to you.</p><p>When <code>Install-LSUpdate</code> is called with this parameter and it successfully installs a BIOS update,
 it will write some registry keys to <code>HKLM\Software\LSUClient\BIOSUpdate</code>, including the string
-<code>ActionNeeded</code> which will contain either <code>"REBOOT"</code> or <code>"SHUTDOWN"</code>.</p>
-<p>However, using the <code>-SaveBIOSUpdateInfoToRegistry</code> parameter is no longer recommended because,
+<code>ActionNeeded</code> which will contain either <code>"REBOOT"</code> or <code>"SHUTDOWN"</code>.</p><p>However, using the <code>-SaveBIOSUpdateInfoToRegistry</code> parameter is no longer recommended because,
 as the name implies, it only sets those registry keys when installing BIOS/UEFI updates and not
-for any other kinds of firmware updates that might require a reboot just the same.</p>
-<p>To summarize the differences and aid the transition, the following table compares the values
-to expect in different scenarios:</p>
-<table>
+for any other kinds of firmware updates that might require a reboot just the same.</p><p>To summarize the differences and aid the transition, the following table compares the values
+to expect in different scenarios:</p><table>
 <thead>
 <tr>
-<th style=text-align:left>Scenario</th>
-<th style=text-align:left>PendingAction property</th>
-<th>&ldquo;ActionNeeded&rdquo; registry value set by <code>-SaveBIOSUpdateInfoToRegistry</code></th>
-</tr>
-</thead>
-<tbody>
+<th style=text-align:left>Scenario</th><th style=text-align:left>PendingAction property</th><th>&ldquo;ActionNeeded&rdquo; registry value set by <code>-SaveBIOSUpdateInfoToRegistry</code></th></tr></thead><tbody>
 <tr>
-<td style=text-align:left>ThinkPad BIOS update</td>
-<td style=text-align:left>REBOOT_MANDATORY</td>
-<td>REBOOT</td>
-</tr>
-<tr>
-<td style=text-align:left>ThinkCentre BIOS update</td>
-<td style=text-align:left>SHUTDOWN</td>
-<td>SHUTDOWN</td>
-</tr>
-<tr>
-<td style=text-align:left>Any Reboot Type 5 update</td>
-<td style=text-align:left>REBOOT_MANDATORY</td>
-<td></td>
-</tr>
-<tr>
-<td style=text-align:left>Any Reboot Type 3 update</td>
-<td style=text-align:left>REBOOT_SUGGESTED</td>
-<td></td>
-</tr>
-<tr>
-<td style=text-align:left>Any Reboot Type 0 update</td>
-<td style=text-align:left>NONE</td>
-<td></td>
-</tr>
-<tr>
-<td style=text-align:left>Any unsuccessful update</td>
-<td style=text-align:left>NONE</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>As you can see, the <code>PendingAction</code> property is always set and more explicit and granular in communicating whether a power cycle is needed or not.</p>
-<h2 id=excluding-bios-andor-firmware-updates>
+<td style=text-align:left>ThinkPad BIOS update</td><td style=text-align:left>REBOOT_MANDATORY</td><td>REBOOT</td></tr><tr>
+<td style=text-align:left>ThinkCentre BIOS update</td><td style=text-align:left>SHUTDOWN</td><td>SHUTDOWN</td></tr><tr>
+<td style=text-align:left>Any Reboot Type 5 update</td><td style=text-align:left>REBOOT_MANDATORY</td><td></td></tr><tr>
+<td style=text-align:left>Any Reboot Type 3 update</td><td style=text-align:left>REBOOT_SUGGESTED</td><td></td></tr><tr>
+<td style=text-align:left>Any Reboot Type 0 update</td><td style=text-align:left>NONE</td><td></td></tr><tr>
+<td style=text-align:left>Any unsuccessful update</td><td style=text-align:left>NONE</td><td></td></tr></tbody></table><p>As you can see, the <code>PendingAction</code> property is always set and more explicit and granular in communicating whether a power cycle is needed or not.</p><h2 id=excluding-bios-andor-firmware-updates>
 Excluding BIOS and/or firmware updates
 <a class=anchor href=#excluding-bios-andor-firmware-updates>#</a>
-</h2>
-<p>If you want to simply not install any BIOS/UEFI updates, I recommend filtering them by <code>Type</code> and possibly <code>Category</code> and <code>Title</code> as a fallback.</p>
-<blockquote class="book-hint warning">
+</h2><p>If you want to simply not install any BIOS/UEFI updates, I recommend filtering them by <code>Type</code> and possibly <code>Category</code> and <code>Title</code> as a fallback.</p><blockquote class="book-hint warning">
 Not all packages have type information, sometimes <code>Type</code> is <code>$null</code> so don&rsquo;t rely on this property alone
-</blockquote>
-<blockquote class="book-hint warning">
-<p>Packages sourced from internal repositories created with &ldquo;Lenovo Update Retriever&rdquo; never have <code>Category</code> information.</p>
-<p>In that scenario it is best to either not include BIOS updates in your repository at all or to filter them by their IDs before installing.</p>
-</blockquote>
-<p>Filtering out BIOS/UEFI updates:</p>
-<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> <span style=color:#eceff4>|</span>
-    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span><span style=color:#81a1c1>Type </span><span style=color:#81a1c1>-ne</span> <span style=color:#a3be8c>&#39;BIOS&#39;</span> <span style=color:#eceff4>}</span> <span style=color:#eceff4>|</span>
-    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>Category <span style=color:#81a1c1>-notmatch</span> <span style=color:#a3be8c>&#34;BIOS|UEFI&#34;</span> <span style=color:#eceff4>}</span> <span style=color:#eceff4>|</span>
-    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>Title <span style=color:#81a1c1>-notmatch</span> <span style=color:#a3be8c>&#34;BIOS|UEFI&#34;</span> <span style=color:#eceff4>}</span>
-</code></pre></div><p>Filtering out other firmware updates:</p>
-<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> <span style=color:#eceff4>|</span>
-    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span><span style=color:#81a1c1>Type </span><span style=color:#81a1c1>-ne</span> <span style=color:#a3be8c>&#39;Firmware&#39;</span> <span style=color:#eceff4>}</span> <span style=color:#eceff4>|</span>
-    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>RebootType <span style=color:#81a1c1>-ne</span> 5 <span style=color:#eceff4>}</span> <span style=color:#eceff4>|</span>
-    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>Category <span style=color:#81a1c1>-notlike</span> <span style=color:#a3be8c>&#34;*Firmware*&#34;</span> <span style=color:#eceff4>}</span> <span style=color:#eceff4>|</span>
-    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>Title <span style=color:#81a1c1>-notlike</span> <span style=color:#a3be8c>&#34;*Firmware*&#34;</span> <span style=color:#eceff4>}</span>
-</code></pre></div><h2 id=recommended-reading>
+</blockquote><blockquote class="book-hint warning">
+<p>Packages sourced from internal repositories created with &ldquo;Lenovo Update Retriever&rdquo; never have <code>Category</code> information.</p><p>In that scenario it is best to either not include BIOS updates in your repository at all or to filter them by their IDs before installing.</p></blockquote><p>Filtering out BIOS/UEFI updates:</p><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> <span style=color:#eceff4>|</span>
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span><span style=color:#81a1c1>Type </span><span style=color:#81a1c1>-ne</span> <span style=color:#a3be8c>&#39;BIOS&#39;</span> <span style=color:#eceff4>}</span> <span style=color:#eceff4>|</span>
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>Category <span style=color:#81a1c1>-notmatch</span> <span style=color:#a3be8c>&#34;BIOS|UEFI&#34;</span> <span style=color:#eceff4>}</span> <span style=color:#eceff4>|</span>
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>Title <span style=color:#81a1c1>-notmatch</span> <span style=color:#a3be8c>&#34;BIOS|UEFI&#34;</span> <span style=color:#eceff4>}</span>
+</span></span></code></pre></div><p>Filtering out other firmware updates:</p><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> <span style=color:#eceff4>|</span>
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span><span style=color:#81a1c1>Type </span><span style=color:#81a1c1>-ne</span> <span style=color:#a3be8c>&#39;Firmware&#39;</span> <span style=color:#eceff4>}</span> <span style=color:#eceff4>|</span>
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>RebootType <span style=color:#81a1c1>-ne</span> 5 <span style=color:#eceff4>}</span> <span style=color:#eceff4>|</span>
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>Category <span style=color:#81a1c1>-notlike</span> <span style=color:#a3be8c>&#34;*Firmware*&#34;</span> <span style=color:#eceff4>}</span> <span style=color:#eceff4>|</span>
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>Title <span style=color:#81a1c1>-notlike</span> <span style=color:#a3be8c>&#34;*Firmware*&#34;</span> <span style=color:#eceff4>}</span>
+</span></span></code></pre></div><h2 id=recommended-reading>
 Recommended reading
 <a class=anchor href=#recommended-reading>#</a>
-</h2>
-<p><a href=https://support.lenovo.com/de/en/solutions/ht507859-bios-flashing-sccm-support-thinkcentre-thinkstation>https://support.lenovo.com/de/en/solutions/ht507859-bios-flashing-sccm-support-thinkcentre-thinkstation</a><br>
-<a href=https://thinkdeploy.blogspot.com/2019/06/what-are-reboot-delayed-updates.html>https://thinkdeploy.blogspot.com/2019/06/what-are-reboot-delayed-updates.html</a></p>
-</article>
-<footer class=book-footer>
+</h2><p><a href=https://support.lenovo.com/de/en/solutions/ht507859-bios-flashing-sccm-support-thinkcentre-thinkstation>https://support.lenovo.com/de/en/solutions/ht507859-bios-flashing-sccm-support-thinkcentre-thinkstation</a><br>
+<a href=https://thinkdeploy.blogspot.com/2019/06/what-are-reboot-delayed-updates.html>https://thinkdeploy.blogspot.com/2019/06/what-are-reboot-delayed-updates.html</a></p></article><footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-</div>
-<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-</footer>
-<div class=book-comments>
-</div>
-<label for=menu-control class="hidden book-menu-overlay"></label>
-</div>
-<aside class=book-toc>
+</div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+</footer><div class=book-comments>
+</div><label for=menu-control class="hidden book-menu-overlay"></label>
+</div><aside class=book-toc>
 <div class=book-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#handling-reboots>Handling reboots</a></li>
-<li><a href=#savebiosupdateinfotoregistry-parameter>SaveBIOSUpdateInfoToRegistry Parameter</a></li>
-<li><a href=#excluding-bios-andor-firmware-updates>Excluding BIOS and/or firmware updates</a></li>
-<li><a href=#recommended-reading>Recommended reading</a></li>
-</ul>
-</nav>
-</div>
-</aside>
-</main>
-</body>
-</html>
+<li><a href=#handling-reboots>Handling reboots</a></li><li><a href=#savebiosupdateinfotoregistry-parameter>SaveBIOSUpdateInfoToRegistry Parameter</a></li><li><a href=#excluding-bios-andor-firmware-updates>Excluding BIOS and/or firmware updates</a></li><li><a href=#recommended-reading>Recommended reading</a></li></ul></nav></div></aside></main></body></html>

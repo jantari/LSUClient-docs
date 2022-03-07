@@ -10,14 +10,12 @@ Get available updates #  Get-LSUpdate Get and install available updates #  $upda
 Get available updates #  Get-LSUpdate Get and install available updates #  $updates = Get-LSUpdate $updates | Install-LSUpdate -Verbose Install only packages that can be installed silently and non-interactively #  $updates = Get-LSUpdate | Where-Object { $_.Installer.Unattended } $updates | Save-LSUpdate -Verbose $updates | Install-LSUpdate -Verbose Filtering out non-unattended packages like this is strongly recommended when using this module in MDT, SCCM, PDQ, remote execution via PowerShell Remoting, ssh or any other situation in which you run these commands remotely or as part of an automated process.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jantari.github.io/LSUClient-docs/docs/getting-started/examples/"><meta property="article:section" content="docs">
-<title>Basic Examples | LSUClient Documentation</title>
-<link rel=manifest href=/LSUClient-docs/manifest.json>
+<title>Basic Examples | LSUClient Documentation</title><link rel=manifest href=/LSUClient-docs/manifest.json>
 <link rel=icon href=/LSUClient-docs/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/LSUClient-docs/book.min.cc60b8f4ed6df7bbbe33ac65c20a4ddb8308b39c5c2227a8c78f8e469c85b2b4.css integrity="sha256-zGC49O1t97u+M6xlwgpN24MIs5xcIieox4+ORpyFsrQ=" crossorigin=anonymous>
 <script defer src=/LSUClient-docs/flexsearch.min.js></script>
-<script defer src=/LSUClient-docs/en.search.min.feac99ee4fb059d48f79ad9d3472c5781f1421a8805896d2c9ff6857db17e45f.js integrity="sha256-/qyZ7k+wWdSPea2dNHLFeB8UIaiAWJbSyf9oV9sX5F8=" crossorigin=anonymous></script>
-</head>
-<body dir=ltr>
+<script defer src=/LSUClient-docs/en.search.min.f38fd21d92b0b9be4d9c1f2b03cb6bb31277dc5494fdc84cfd39c7dd4ba0a5b1.js integrity="sha256-84/SHZKwub5NnB8rA8trsxJ33FSU/chM/TnH3UugpbE=" crossorigin=anonymous></script>
+</head><body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control>
 <main class="container flex">
@@ -27,55 +25,37 @@ Get available updates #  Get-LSUpdate Get and install available updates #  $upda
 <h2 class=book-brand>
 <a class="flex align-center" href=/LSUClient-docs/><span>LSUClient Documentation</span>
 </a>
-</h2>
-<div class=book-search>
+</h2><div class=book-search>
 <input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
-<div class="book-search-spinner hidden"></div>
-<ul id=book-search-results></ul>
-</div>
-<ul>
+<div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul>
 <li class=book-section-flat>
 <span>Getting Started</span>
 <ul>
 <li>
 <a href=/LSUClient-docs/docs/getting-started/examples/ class=active>Basic Examples</a>
-</li>
-<li>
+</li><li>
 <a href=/LSUClient-docs/docs/getting-started/best-practices/>Best Practices</a>
-</li>
-<li>
+</li><li>
 <a href=/LSUClient-docs/docs/getting-started/bios-and-firmware/>BIOS/UEFI and Firmware updates</a>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
+</li></ul></li></ul><ul>
 <li>
 <a href=https://github.com/jantari/LSUClient target=_blank rel=noopener>
-🌐 GitHub
+🔗 GitHub
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://github.com/jantari/LSUClient/releases target=_blank rel=noopener>
-🌐 Release Notes
+🔗 Release Notes
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://www.powershellgallery.com/packages/LSUClient/ target=_blank rel=noopener>
-🌐 PowerShell Gallery
+🔗 PowerShell Gallery
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://github.com/alex-shpak/hugo-book target=_blank rel=noopener>
 🔗 Hugo Book Theme
 </a>
-</li>
-</ul>
-</nav>
-<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-</div>
-</aside>
-<div class=book-page>
+</li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div></aside><div class=book-page>
 <header class=book-header>
 <div class="flex align-center justify-between">
 <label for=menu-control>
@@ -84,64 +64,44 @@ Get available updates #  Get-LSUpdate Get and install available updates #  $upda
 <strong>Basic Examples</strong>
 <label for=toc-control>
 </label>
-</div>
-</header>
-<article class=markdown><h1 id=basic-examples>
+</div></header><article class=markdown><h1 id=basic-examples>
 Basic Examples
 <a class=anchor href=#basic-examples>#</a>
-</h1>
-<p>These are some examples to try out.
-For all available parameters and guidance on how to use them run <code>Get-Help -Detailed</code> on the functions in this module.</p>
-<h3 id=get-available-updates>
+</h1><p>These are some examples to try out.
+For all available parameters and guidance on how to use them run <code>Get-Help -Detailed</code> on the functions in this module.</p><h3 id=get-available-updates>
 Get available updates
 <a class=anchor href=#get-available-updates>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#81a1c1>Get-LSUpdate</span>
-</code></pre></div><h3 id=get-and-install-available-updates>
+</h3><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#81a1c1>Get-LSUpdate</span>
+</span></span></code></pre></div><h3 id=get-and-install-available-updates>
 Get and install available updates
 <a class=anchor href=#get-and-install-available-updates>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span>
-$updates <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Install-LSUpdate</span> -Verbose
-</code></pre></div><h3 id=install-only-packages-that-can-be-installed-silently-and-non-interactively>
+</h3><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span>
+</span></span><span style=display:flex><span>$updates <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Install-LSUpdate</span> -Verbose
+</span></span></code></pre></div><h3 id=install-only-packages-that-can-be-installed-silently-and-non-interactively>
 Install only packages that can be installed silently and non-interactively
 <a class=anchor href=#install-only-packages-that-can-be-installed-silently-and-non-interactively>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>Installer<span style=color:#eceff4>.</span>Unattended <span style=color:#eceff4>}</span>
-$updates <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Save-LSUpdate</span> -Verbose
-$updates <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Install-LSUpdate</span> -Verbose
-</code></pre></div><p>Filtering out non-unattended packages like this is strongly recommended when using this module in MDT, SCCM, PDQ,
+</h3><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Where-Object</span> <span style=color:#eceff4>{</span> $_<span style=color:#eceff4>.</span>Installer<span style=color:#eceff4>.</span>Unattended <span style=color:#eceff4>}</span>
+</span></span><span style=display:flex><span>$updates <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Save-LSUpdate</span> -Verbose
+</span></span><span style=display:flex><span>$updates <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Install-LSUpdate</span> -Verbose
+</span></span></code></pre></div><p>Filtering out non-unattended packages like this is strongly recommended when using this module in MDT, SCCM, PDQ,
 remote execution via PowerShell Remoting, ssh or any other situation in which you run these commands remotely
 or as part of an automated process. Packages with installers that are not unattended may force reboots or
-attempt to start a GUI setup on the machine and, if successful, halt until someone clicks through the dialogs.</p>
-<h3 id=get-all-available-packages>
+attempt to start a GUI setup on the machine and, if successful, halt until someone clicks through the dialogs.</p><h3 id=get-all-available-packages>
 Get all available packages
 <a class=anchor href=#get-all-available-packages>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> -All
-</code></pre></div><p>By default, <code>Get-LSUpdate</code> only returns &ldquo;needed&rdquo; updates. Needed updates are those that are applicable to
+</h3><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>$updates <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> -All
+</span></span></code></pre></div><p>By default, <code>Get-LSUpdate</code> only returns &ldquo;needed&rdquo; updates. Needed updates are those that are applicable to
 the system and not yet installed. If you want to retrieve all available packages instead, use <code>Get-LSUpdate -All</code>.
 To filter out unneeded packages later, just look at the <code>IsApplicable</code> and <code>IsInstalled</code> properties.
 The default logic is equivalent to:
-<code>Get-LSUpdate -All | Where-Object { $_.IsApplicable -and -not $_.IsInstalled }</code></p>
-<h3 id=download-drivers-for-another-computer>
+<code>Get-LSUpdate -All | Where-Object { $_.IsApplicable -and -not $_.IsInstalled }</code></p><h3 id=download-drivers-for-another-computer>
 Download drivers for another computer
 <a class=anchor href=#download-drivers-for-another-computer>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#81a1c1>Get-LSUpdate</span> -Model <span style=color:#a3be8c>&#39;20LS&#39;</span> -All <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Save-LSUpdate</span> -Path <span style=color:#a3be8c>&#39;C:\Drivers\20LS&#39;</span> -ShowProgress
-</code></pre></div><p>Using the <code>-Model</code> parameter of <code>Get-LSUpdate</code> you can retrieve packages for another computer model.
-In this case you almost always want to use <code>-All</code> too so that the packages found are not filtered against your computer and all packages are downloaded.</p>
-<p>Ever since LSUClient Version 1.3.3 you can also pass full-length MTM/model names such as <code>20K70000GE</code> to this parameter.</p>
-</article>
-<footer class=book-footer>
+</h3><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#81a1c1>Get-LSUpdate</span> -Model <span style=color:#a3be8c>&#39;20LS&#39;</span> -All <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Save-LSUpdate</span> -Path <span style=color:#a3be8c>&#39;C:\Drivers\20LS&#39;</span> -ShowProgress
+</span></span></code></pre></div><p>Using the <code>-Model</code> parameter of <code>Get-LSUpdate</code> you can retrieve packages for another computer model.
+In this case you almost always want to use <code>-All</code> too so that the packages found are not filtered against your computer and all packages are downloaded.</p><p>Ever since LSUClient Version 1.3.3 you can also pass full-length MTM/model names such as <code>20K70000GE</code> to this parameter.</p></article><footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-</div>
-<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-</footer>
-<div class=book-comments>
-</div>
-<label for=menu-control class="hidden book-menu-overlay"></label>
-</div>
-</main>
-</body>
-</html>
+</div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+</footer><div class=book-comments>
+</div><label for=menu-control class="hidden book-menu-overlay"></label>
+</div></main></body></html>
