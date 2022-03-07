@@ -13,17 +13,17 @@ theme = 'hugo-book'
 
 [menu]
 [[menu.after]]
-  name = "🌐 GitHub"
+  name = "🔗 GitHub"
   url = "https://github.com/jantari/LSUClient"
   weight = 10
 
 [[menu.after]]
-  name = "🌐 Release Notes"
+  name = "🔗 Release Notes"
   url = "https://github.com/jantari/LSUClient/releases"
   weight = 20
 
 [[menu.after]]
-  name = "🌐 PowerShell Gallery"
+  name = "🔗 PowerShell Gallery"
   url = "https://www.powershellgallery.com/packages/LSUClient/"
   weight = 30
 
