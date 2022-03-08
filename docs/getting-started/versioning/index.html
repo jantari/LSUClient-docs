@@ -1,0 +1,116 @@
+<!doctype html><html lang=en-us dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Versioning #  LSUClient uses a three-part version number MAJOR.MINOR.PATCH and follows SemVer 2.0.0.
+This means you can generally expect all your scripts and integrations to keep working with any one major version (such as 1.x.x).
+There is only ever one current release of LSUClient, there is no parallel maintenance of older releases or prior versions. As soon as a new release is out the prior one is obsoleted.
+What is and isn&rsquo;t covered by the semantic versioning promise #  Semantic versioning communicates changes in a softwares &ldquo;public API&rdquo;.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="Versioning #  LSUClient uses a three-part version number MAJOR.MINOR.PATCH and follows SemVer 2.0.0.
+This means you can generally expect all your scripts and integrations to keep working with any one major version (such as 1.x.x).
+There is only ever one current release of LSUClient, there is no parallel maintenance of older releases or prior versions. As soon as a new release is out the prior one is obsoleted.
+What is and isn&rsquo;t covered by the semantic versioning promise #  Semantic versioning communicates changes in a softwares &ldquo;public API&rdquo;.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jantari.github.io/LSUClient-docs/docs/getting-started/versioning/"><meta property="article:section" content="docs">
+<title>Versioning | LSUClient Documentation</title><link rel=manifest href=/LSUClient-docs/manifest.json>
+<link rel=icon href=/LSUClient-docs/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/LSUClient-docs/book.min.cc60b8f4ed6df7bbbe33ac65c20a4ddb8308b39c5c2227a8c78f8e469c85b2b4.css integrity="sha256-zGC49O1t97u+M6xlwgpN24MIs5xcIieox4+ORpyFsrQ=" crossorigin=anonymous>
+<script defer src=/LSUClient-docs/flexsearch.min.js></script>
+<script defer src=/LSUClient-docs/en.search.min.19efd91d5d21fe4b6de416fcf9e4d90c48f5dbb520bb889b97e94814e8e133d7.js integrity="sha256-Ge/ZHV0h/ktt5Bb8+eTZDEj127Ugu4ibl+lIFOjhM9c=" crossorigin=anonymous></script>
+</head><body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/LSUClient-docs/><span>LSUClient Documentation</span>
+</a>
+</h2><div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul>
+<li class=book-section-flat>
+<span>Getting Started</span>
+<ul>
+<li>
+<a href=/LSUClient-docs/docs/getting-started/examples/>Basic Examples</a>
+</li><li>
+<a href=/LSUClient-docs/docs/getting-started/best-practices/>Best Practices</a>
+</li><li>
+<a href=/LSUClient-docs/docs/getting-started/bios-and-firmware/>BIOS/UEFI and Firmware updates</a>
+</li><li>
+<a href=/LSUClient-docs/docs/getting-started/versioning/ class=active>Versioning</a>
+</li></ul></li></ul><ul>
+<li>
+<a href=https://github.com/jantari/LSUClient target=_blank rel=noopener>
+🔗 GitHub
+</a>
+</li><li>
+<a href=https://github.com/jantari/LSUClient/releases target=_blank rel=noopener>
+🔗 Release Notes
+</a>
+</li><li>
+<a href=https://www.powershellgallery.com/packages/LSUClient/ target=_blank rel=noopener>
+🔗 PowerShell Gallery
+</a>
+</li><li>
+<a href=https://github.com/alex-shpak/hugo-book target=_blank rel=noopener>
+🔗 Hugo Book Theme
+</a>
+</li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div></aside><div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/LSUClient-docs/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Versioning</strong>
+<label for=toc-control>
+<img src=/LSUClient-docs/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div><aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#what-is-and-isnt-covered-by-the-semantic-versioning-promise>What is and isn&rsquo;t covered by the semantic versioning promise</a></li><li><a href=#minor-breaking-changes-in-minor-versions>Minor breaking changes in minor versions</a></li></ul></nav></aside></header><article class=markdown><h1 id=versioning>
+Versioning
+<a class=anchor href=#versioning>#</a>
+</h1><p>LSUClient uses a three-part version number MAJOR.MINOR.PATCH and follows <a href=https://semver.org/spec/v2.0.0.html>SemVer 2.0.0</a>.</p><p>This means you can generally expect all your scripts and integrations to keep working with any one major version (such as 1.x.x).</p><p>There is only ever one current release of LSUClient, there is no parallel maintenance of older releases or prior versions.
+As soon as a new release is out the prior one is obsoleted.</p><h2 id=what-is-and-isnt-covered-by-the-semantic-versioning-promise>
+What is and isn&rsquo;t covered by the semantic versioning promise
+<a class=anchor href=#what-is-and-isnt-covered-by-the-semantic-versioning-promise>#</a>
+</h2><p>Semantic versioning communicates changes in a softwares &ldquo;public API&rdquo;.</p><p>For the purpose of a PowerShell Module, the public API is the exported functions (cmdlets), classes and the returned objects.</p><p>Explicitly exempt from this public API are:</p><ul>
+<li>Private functions</li><li>Internal classes</li><li>Hidden properties</li><li>Output streams other than the success stream (1)</li></ul><p>The data structure, type, name, content and behavior of these may change at any point without notice as they are
+only intended for internal use by LSUClient itself, or in the case of non-success output streams such as Verbose and Debug,
+only for logging and &ldquo;human consumption&rdquo; and not to support scripting workloads.</p><h2 id=minor-breaking-changes-in-minor-versions>
+Minor breaking changes in minor versions
+<a class=anchor href=#minor-breaking-changes-in-minor-versions>#</a>
+</h2><p>I must admit, I <em>sometimes</em> make exceptions from this rule for breaking changes I consider to be &ldquo;very very minor&rdquo; in that:</p><ol>
+<li>I feel they are likely not going to impact any or only very few users</li><li>They are trivial to adjust for, as in the change(s) required to get everything working again with the new version are very very small</li></ol><p>An example of this is the change of the type of the <code>URL</code> property on the <code>[LenovoUpdate]</code> objects from <code>[System.Uri]</code> to <code>[System.String]</code> with Version 1.3.0.
+So if you were accessing a property or method unique to the <code>[System.Uri]</code> object, for example:</p><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#616e87;font-style:italic># Pretend-script written for LSUClient 1.2.5</span>
+</span></span><span style=display:flex><span>$OneUpdate <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> -All <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Select-Object</span> -First 1
+</span></span><span style=display:flex><span><span style=color:#81a1c1;font-weight:700>if</span> <span style=color:#eceff4>(</span>$OneUpdate<span style=color:#eceff4>.</span>URL<span style=color:#eceff4>.</span>Host <span style=color:#81a1c1>-like</span> <span style=color:#a3be8c>&#34;*.com&#34;</span><span style=color:#eceff4>)</span> <span style=color:#eceff4>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1>Write-Output</span> <span style=color:#a3be8c>&#34;Hey! This update was sourced from a .com domain!&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#eceff4>}</span> <span style=color:#81a1c1;font-weight:700>else</span> <span style=color:#eceff4>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1>Write-Output</span> <span style=color:#a3be8c>&#34;Some other domain!&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#eceff4>}</span>
+</span></span></code></pre></div><p>that would have broken because once <code>$OneUpdate.URL</code> became a string, it no longer had a <code>Host</code> property.</p><p>This means in the code snippet above <code>$OneUpdate.URL.Host</code> will evaluate to <code>$null</code> and either always print <code>Some other domain!</code>
+or error with <code>The property 'Host' cannot be found on this object.</code> if you are running in PowerShell Strict Mode.</p><p>However, a quick fix to get the same snippet working again could be to just cast <code>$OneUpdate.URL</code> back to <code>[System.Uri]</code>:</p><div class=highlight><pre tabindex=0 style=color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#616e87;font-style:italic># Pretend-script updated for LSUClient 1.3.0+</span>
+</span></span><span style=display:flex><span>$OneUpdate <span style=color:#eceff4>=</span> <span style=color:#81a1c1>Get-LSUpdate</span> -All <span style=color:#eceff4>|</span> <span style=color:#81a1c1>Select-Object</span> -First 1
+</span></span><span style=display:flex;background-color:#424853><span><span style=color:#81a1c1;font-weight:700>if</span> <span style=color:#eceff4>((</span><span style=color:#8fbcbb>[Uri]</span>$OneUpdate<span style=color:#eceff4>.</span>URL<span style=color:#eceff4>).</span>Host <span style=color:#81a1c1>-like</span> <span style=color:#a3be8c>&#34;*.com&#34;</span><span style=color:#eceff4>)</span> <span style=color:#eceff4>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1>Write-Output</span> <span style=color:#a3be8c>&#34;Hey! This update was sourced from a .com domain!&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#eceff4>}</span> <span style=color:#81a1c1;font-weight:700>else</span> <span style=color:#eceff4>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#81a1c1>Write-Output</span> <span style=color:#a3be8c>&#34;Some other domain!&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#eceff4>}</span>
+</span></span></code></pre></div><p>Any such &ldquo;minor breaking change&rdquo; will be noted in the release notes, and will also be accompanied by a bump of the MINOR version number.</p></article><footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+</footer><div class=book-comments>
+</div><label for=menu-control class="hidden book-menu-overlay"></label>
+</div><aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#what-is-and-isnt-covered-by-the-semantic-versioning-promise>What is and isn&rsquo;t covered by the semantic versioning promise</a></li><li><a href=#minor-breaking-changes-in-minor-versions>Minor breaking changes in minor versions</a></li></ul></nav></div></aside></main></body></html>
