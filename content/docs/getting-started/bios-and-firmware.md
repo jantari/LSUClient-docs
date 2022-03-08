@@ -1,5 +1,6 @@
 ---
 title: BIOS/UEFI and Firmware updates
+weight: 30
 ---
 
 # BIOS/UEFI and other firmware updates

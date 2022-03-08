@@ -1,3 +1,7 @@
+---
+weight: 20
+---
+
 # Best Practices
 
 ## 1. Search for and install updates a few times in a loop

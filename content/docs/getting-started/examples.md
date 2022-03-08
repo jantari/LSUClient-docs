@@ -1,6 +1,6 @@
 ---
 title: Basic Examples
-weight: 20
+weight: 10
 bookToc: false
 ---
 
