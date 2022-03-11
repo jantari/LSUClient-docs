@@ -2,6 +2,7 @@
 title: Introduction
 type: docs
 bookToc: false
+asciinema: true
 ---
 
 {{< center >}}
@@ -14,14 +15,16 @@ bookToc: false
 
 ![logo](./logo_220px.png)
 
-{{< /center >}}
-
 A PowerShell module that partially reimplements the "Lenovo System Update" program for convenient,
 automatable and worry-free driver and system updates for Lenovo computers.
+
+{{< /center >}}
 
 ```powershell
 Install-Module -Name 'LSUClient'
 ```
+
+{{< asciinema-player key="lsuclient" >}}
 
 ## Highlight features
 
