@@ -1,0 +1,5 @@
+This website uses asciinema-player 3.0.0-beta.4.
+
+asciinema-player is licensed under the Apache License, Version 2.0
+
+See: https://github.com/asciinema/asciinema-player
