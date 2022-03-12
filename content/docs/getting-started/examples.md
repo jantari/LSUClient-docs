@@ -20,6 +20,17 @@ $updates = Get-LSUpdate
 $updates | Install-LSUpdate -Verbose
 ```
 
+### Get and install available updates, with some simple progress output
+```powershell
+$updates = Get-LSUpdate
+$i = 1
+foreach ($update in $updates) {
+    Write-Host "Installing update $i of $($updates.Count): $($update.Title)"
+    Install-LSUpdate -Package $update -Verbose
+    $i++
+}
+```
+
 ### Install only packages that can be installed silently and non-interactively
 ```powershell
 $updates = Get-LSUpdate | Where-Object { $_.Installer.Unattended }
