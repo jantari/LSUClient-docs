@@ -45,13 +45,13 @@
 /* LiteralStringChar */ .chroma .sc { color: #a3be8c }
 /* LiteralStringDelimiter */ .chroma .dl { color: #a3be8c }
 /* LiteralStringDoc */ .chroma .sd { color: #616e87 }
-/* LiteralStringDouble */ .chroma .s2 { color: var(--nord9) }
+/* LiteralStringDouble */ .chroma .s2 { color: var(--nord5) }
 /* LiteralStringEscape */ .chroma .se { color: #ebcb8b }
 /* LiteralStringHeredoc */ .chroma .sh { color: #a3be8c }
 /* LiteralStringInterpol */ .chroma .si { color: #a3be8c }
 /* LiteralStringOther */ .chroma .sx { color: #a3be8c }
 /* LiteralStringRegex */ .chroma .sr { color: #ebcb8b }
-/* LiteralStringSingle */ .chroma .s1 { color: var(--nord14) }
+/* LiteralStringSingle */ .chroma .s1 { color: var(--nord5) }
 /* LiteralStringSymbol */ .chroma .ss { color: #a3be8c }
 /* LiteralNumber */ .chroma .m { color: #b48ead }
 /* LiteralNumberBin */ .chroma .mb { color: #b48ead }
