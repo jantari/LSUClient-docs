@@ -1,0 +1,118 @@
+.asciinema-theme-nord .asciinema-terminal {
+  color: var(--nord4);
+  background-color: var(--nord0);
+  border-color: var(--nord1);
+}
+.asciinema-theme-nord .fg-bg {
+  color: var(--nord0);
+}
+.asciinema-theme-nord .bg-fg {
+  background-color: var(--nord4);
+}
+.asciinema-theme-nord .fg-0 {
+  color: var(--nord0);
+}
+.asciinema-theme-nord .bg-0 {
+  background-color: var(--nord0);
+}
+.asciinema-theme-nord .fg-1 {
+  color: var(--nord11);
+}
+.asciinema-theme-nord .bg-1 {
+  background-color: var(--nord11);
+}
+.asciinema-theme-nord .fg-2 {
+  color: var(--nord14);
+}
+.asciinema-theme-nord .bg-2 {
+  background-color: var(--nord8);
+}
+.asciinema-theme-nord .fg-3 {
+  color: var(--nord13);
+}
+.asciinema-theme-nord .bg-3 {
+  background-color: var(--nord12);
+}
+.asciinema-theme-nord .fg-4 {
+  color: var(--nord9);
+}
+.asciinema-theme-nord .bg-4 {
+  background-color: var(--nord10);
+}
+.asciinema-theme-nord .fg-5 {
+  color: var(--nord11);
+}
+.asciinema-theme-nord .bg-5 {
+  background-color: var(--nord15);
+}
+.asciinema-theme-nord .fg-6 {
+  color: var(--nord8);
+}
+.asciinema-theme-nord .bg-6 {
+  background-color: var(--nord8);
+}
+.asciinema-theme-nord .fg-7 {
+  color: var(--nord4);
+}
+.asciinema-theme-nord .bg-7 {
+  background-color: var(--nord4);
+}
+.asciinema-theme-nord .fg-8 {
+  /* Parameter color */
+  color: var(--nord4);
+}
+.asciinema-theme-nord .bg-8 {
+  background-color: var(--nord2);
+}
+.asciinema-theme-nord .fg-9 {
+  color: var(--nord11);
+}
+.asciinema-theme-nord .bg-9 {
+  background-color: var(--nord11);
+}
+.asciinema-theme-nord .fg-10 {
+  color: var(--nord14);
+}
+.asciinema-theme-nord .bg-10 {
+  background-color: var(--nord8);
+}
+.asciinema-theme-nord .fg-11 {
+  color: var(--nord13);
+}
+.asciinema-theme-nord .bg-11 {
+  background-color: var(--nord12);
+}
+.asciinema-theme-nord .fg-12 {
+  color: var(--nord10);
+}
+.asciinema-theme-nord .bg-12 {
+  background-color: var(--nord10);
+}
+.asciinema-theme-nord .fg-13 {
+  color: var(--nord15);
+}
+.asciinema-theme-nord .bg-13 {
+  background-color: var(--nord15);
+}
+.asciinema-theme-nord .fg-14 {
+  color: var(--nord8);
+}
+.asciinema-theme-nord .bg-14 {
+  background-color: var(--nord8);
+}
+.asciinema-theme-nord .fg-15 {
+  color: var(--nord5);
+}
+.asciinema-theme-nord .bg-15 {
+  background-color: var(--nord5);
+}
+/*.asciinema-theme-nord .fg-8, */
+.asciinema-theme-nord .fg-9,
+.asciinema-theme-nord .fg-10,
+.asciinema-theme-nord .fg-11,
+.asciinema-theme-nord .fg-12,
+.asciinema-theme-nord .fg-13,
+.asciinema-theme-nord .fg-14,
+.asciinema-theme-nord .fg-15 {
+  font-weight: bold;
+}
