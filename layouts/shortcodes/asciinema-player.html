@@ -2,7 +2,8 @@
 </div>
 
 <script>
-  AsciinemaPlayer.create({{ .Site.BaseURL }} + "casts/{{ with .Get "key" }}{{ . }}{{ end }}.cast", document.getElementById('lsuclient-asciinema-demo'), {
+  {{ $castFile := print "casts/" ( .Get "key" ) ".cast" }}
+  AsciinemaPlayer.create({{ $castFile | relURL }}, document.getElementById('lsuclient-asciinema-demo'), {
     poster: 'npt:9.5',
     idleTimeLimit: 4
   });
