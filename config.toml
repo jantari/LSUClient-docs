@@ -9,7 +9,7 @@ theme = 'hugo-book'
 
 [markup]
   [markup.highlight]
-    style = 'nord'
+    noClasses = false
 
 [menu]
 [[menu.after]]

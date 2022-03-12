@@ -15,3 +15,7 @@
 .asciinema-player pre {
     overflow-x: hidden
 }
+
+pre.chroma {
+    background-color: var(--nord0);
+}

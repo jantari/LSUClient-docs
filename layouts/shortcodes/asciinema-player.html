@@ -1,10 +1,11 @@
-<div style="display:block;margin-left:auto; margin-right:auto" id="lsuclient-asciinema-demo" class="asciinema-sizer">
+<div style="display:block;margin-left:auto;margin-right:auto" id="lsuclient-asciinema-demo" class="asciinema-sizer">
 </div>
 
 <script>
   {{ $castFile := print "casts/" ( .Get "key" ) ".cast" }}
   AsciinemaPlayer.create({{ $castFile | relURL }}, document.getElementById('lsuclient-asciinema-demo'), {
     poster: 'npt:9.5',
-    idleTimeLimit: 4
+    idleTimeLimit: 4,
+    theme: 'nord'
   });
 </script>
