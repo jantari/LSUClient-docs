@@ -29,10 +29,11 @@ Install-Module -Name 'LSUClient'
 ## Highlight features
 
 - Does driver, BIOS/UEFI, firmware and utility software updates
+- Allows for fully silent and unattended update runs
+- Fetch the latest updates from Lenovo directly or use an internal repository of your own for more control
+- Can work alongside, but does not depend on or use Lenovo System Update or any other external programs
+- Work with updates and even their results as PowerShell objects to build any custom logic imaginable
 - Run locally or manage/report on an entire fleet of computers remotely
-- Allows for fully silent and unattended updates
-- Supports not only business computers but consumer lines too (e.g. IdeaPad)
 - Full Web-Proxy support including authentication
-- Fetch updates from Lenovo directly or use an internal repository of your own
-- Work with updates as PowerShell objects to build any custom logic imaginable
+- Supports not only business computers but consumer lines too (e.g. IdeaPad)
 - Free, open-source and permissively licensed!
