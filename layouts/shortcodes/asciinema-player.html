@@ -4,7 +4,7 @@
 <script>
   {{ $castFile := print "casts/" ( .Get "key" ) ".cast" }}
   AsciinemaPlayer.create({{ $castFile | relURL }}, document.getElementById('lsuclient-asciinema-demo'), {
-    poster: 'npt:9.5',
+    poster: 'npt:28',
     idleTimeLimit: 4,
     theme: 'nord'
   });

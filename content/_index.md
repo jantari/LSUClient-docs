@@ -37,3 +37,4 @@ Install-Module -Name 'LSUClient'
 - Full Web-Proxy support including authentication
 - Supports not only business computers but consumer lines too (e.g. IdeaPad)
 - Free, open-source and permissively licensed!
+
