@@ -49,9 +49,9 @@ $updates = Get-LSUpdate -All
 ```
 By default, `Get-LSUpdate` only returns "needed" updates. Needed updates are those that are applicable to
 the system and not yet installed. If you want to retrieve all available packages instead, use `Get-LSUpdate -All`.
-To filter out unneeded packages later, just look at the `IsApplicable` and `IsInstalled` properties.
-The default logic is equivalent to:
-`Get-LSUpdate -All | Where-Object { $_.IsApplicable -and -not $_.IsInstalled }`
+
+It is possible to filter out the unneeded packages later by looking at the `IsApplicable` and `IsInstalled` properties.
+The default logic is equivalent to: `Get-LSUpdate -All | Where-Object { $_.IsApplicable -and -not $_.IsInstalled }`.
 
 ### Download drivers for another computer
 ```powershell
