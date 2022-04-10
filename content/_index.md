@@ -6,9 +6,9 @@ asciinema: true
 ---
 
 {{< center >}}
-{{< render-markdown >}}
+<h1 id="lsuclient" style="margin-top: 0">LSUClient</h1>
 
-# LSUClient
+{{< render-markdown >}}
 
 ![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/LSUClient?label=PowerShell%20Gallery&logo=Powershell&logoColor=FFFFFF&style=flat)
 ![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/lsuclient?label=Latest&logo=powershell&logoColor=FFF)
@@ -21,9 +21,9 @@ asciinema: true
 
 {{< raw-html >}}
 <div style="display:block;margin-left:auto;margin-right:auto" class="asciinema-sizer">
-{{< render-markdown >}}
+{{< /raw-html >}}
 
-An all-PowerShell alternative to "Lenovo System Update" that gives you the control and flexibility to automate
+An all-PowerShell alternative to "Lenovo System Update" that gives you the control and flexibility to manage
 driver and firmware updates like you've always wanted to.
 
 ## Installation
@@ -46,7 +46,7 @@ Install-Module -Name 'LSUClient'
 
 ## Demo!
 
-{{< /render-markdown >}}
+{{< raw-html >}}
 </div>
 {{< /raw-html >}}
 

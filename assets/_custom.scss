@@ -3,6 +3,13 @@
     height: 70%;
 }
 
+@media screen and (min-width: $mobile-breakpoint) {
+  .book-page {
+    padding-left: $padding-16 * 2;
+    padding-right: $padding-16 * 2;
+  }
+}
+
 @media screen and (max-width: $mobile-breakpoint) {
   .asciinema-sizer {
     width: 100%;
