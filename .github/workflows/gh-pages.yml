@@ -16,7 +16,7 @@ jobs:
 
       - name: Download current LSUClient Module
         run: |
-          TAR_DOWNLOAD_URL=$(curl -sSL https://api.github.com/repos/jantari/LSUClient/releases/latest)
+          TAR_DOWNLOAD_URL=$(curl -sSL https://api.github.com/repos/jantari/LSUClient/releases/latest | jq -r .tarball_url)
           curl -sSL $TAR_DOWNLOAD_URL -o ./lsuclient-latest.tar.gz
           mkdir /tmp/lsuclient-latest
           tar -xzvf ./lsuclient-latest -C /tmp/lsuclient-latest
