@@ -1,0 +1,187 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Get-LSUpdate #  SYNOPSIS #  Fetches available driver packages and updates for Lenovo computers
+SYNTAX #  Get-LSUpdate [[-Model] <String>] [[-Proxy] <Uri>] [[-ProxyCredential] <PSCredential>] [-ProxyUseDefaultCredentials] [-All] [-IncludePhantomDevices] [[-ScratchDirectory] <DirectoryInfo>] [[-Repository] <String>] [-NoTestApplicable] [-NoTestInstalled] [-NoTestSeverityOverride] [-FailUnsupportedDependencies] [-PassUnsupportedInstallTests] [<CommonParameters>] DESCRIPTION #  {{ Fill in the Description }}
+EXAMPLES #  Example 1 #  PS C:\> {{ Add example code here }} {{ Add example description here }}
+PARAMETERS #  -All #  Return all packages, regardless of whether they are applicable to this specific machine or whether they are already installed."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="Get-LSUpdate"><meta property="og:description" content="Get-LSUpdate #  SYNOPSIS #  Fetches available driver packages and updates for Lenovo computers
+SYNTAX #  Get-LSUpdate [[-Model] <String>] [[-Proxy] <Uri>] [[-ProxyCredential] <PSCredential>] [-ProxyUseDefaultCredentials] [-All] [-IncludePhantomDevices] [[-ScratchDirectory] <DirectoryInfo>] [[-Repository] <String>] [-NoTestApplicable] [-NoTestInstalled] [-NoTestSeverityOverride] [-FailUnsupportedDependencies] [-PassUnsupportedInstallTests] [<CommonParameters>] DESCRIPTION #  {{ Fill in the Description }}
+EXAMPLES #  Example 1 #  PS C:\> {{ Add example code here }} {{ Add example description here }}
+PARAMETERS #  -All #  Return all packages, regardless of whether they are applicable to this specific machine or whether they are already installed."><meta property="og:type" content="article"><meta property="og:url" content="https://jantari.github.io/LSUClient-docs/docs/cmdlets/get-lsupdate/"><meta property="article:section" content="docs"><title>Get-LSUpdate | LSUClient Documentation</title><link rel=manifest href=/LSUClient-docs/manifest.json><link rel=icon href=/LSUClient-docs/favicon.png type=image/x-icon><link rel=stylesheet href=/LSUClient-docs/book.min.c88b93b9ecb16d5abb0111a0a8bdc0745499151283aee71eb7ddec30fd96d239.css integrity="sha256-yIuTueyxbVq7ARGgqL3AdFSZFRKDrucet93sMP2W0jk=" crossorigin=anonymous><script defer src=/LSUClient-docs/flexsearch.min.js></script>
+<script defer src=/LSUClient-docs/en.search.min.eb56f42dc45b9cbfab7b87338ab2523a6bb21438957600471aae25caeeabc123.js integrity="sha256-61b0LcRbnL+re4czirJSOmuyFDiVdgBHGq4lyu6rwSM=" crossorigin=anonymous></script>
+<link rel=stylesheet type=text/css href=/LSUClient-docs/nord.css><link rel=stylesheet type=text/css href=/LSUClient-docs/syntax.css></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/LSUClient-docs/><span>LSUClient Documentation</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Topics</span><ul><li><a href=/LSUClient-docs/docs/topics/examples/>Basic Examples</a></li><li><a href=/LSUClient-docs/docs/topics/best-practices/>Best Practices</a></li><li><a href=/LSUClient-docs/docs/topics/bios-and-firmware/>BIOS/UEFI and Firmware updates</a></li><li><a href=/LSUClient-docs/docs/topics/self-hosted-repositories/>Self-hosted repositories</a></li><li><a href=/LSUClient-docs/docs/topics/versioning/>Versioning</a></li></ul></li><li class=book-section-flat><span>Cmdlet Reference</span><ul><li><a href=/LSUClient-docs/docs/cmdlets/get-lsupdate/ class=active>Get-LSUpdate</a></li><li><a href=/LSUClient-docs/docs/cmdlets/install-lsupdate/>Install-LSUpdate</a></li><li><a href=/LSUClient-docs/docs/cmdlets/save-lsupdate/>Save-LSUpdate</a></li></ul></li></ul><ul><li><a href=https://github.com/jantari/LSUClient target=_blank rel=noopener>🔗 GitHub</a></li><li><a href=https://github.com/jantari/LSUClient/releases target=_blank rel=noopener>🔗 Release Notes</a></li><li><a href=https://www.powershellgallery.com/packages/LSUClient/ target=_blank rel=noopener>🔗 PowerShell Gallery</a></li><li><a href=https://github.com/alex-shpak/hugo-book target=_blank rel=noopener>🔗 Hugo Book Theme</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/LSUClient-docs/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Get-LSUpdate</strong>
+<label for=toc-control><img src=/LSUClient-docs/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#synopsis>SYNOPSIS</a></li><li><a href=#syntax>SYNTAX</a></li><li><a href=#description>DESCRIPTION</a></li><li><a href=#examples>EXAMPLES</a><ul><li><a href=#example-1>Example 1</a></li></ul></li><li><a href=#parameters>PARAMETERS</a><ul><li><a href=#-all>-All</a></li><li><a href=#-failunsupporteddependencies>-FailUnsupportedDependencies</a></li><li><a href=#-includephantomdevices>-IncludePhantomDevices</a></li><li><a href=#-model>-Model</a></li><li><a href=#-notestapplicable>-NoTestApplicable</a></li><li><a href=#-notestinstalled>-NoTestInstalled</a></li><li><a href=#-notestseverityoverride>-NoTestSeverityOverride</a></li><li><a href=#-passunsupportedinstalltests>-PassUnsupportedInstallTests</a></li><li><a href=#-proxy>-Proxy</a></li><li><a href=#-proxycredential>-ProxyCredential</a></li><li><a href=#-proxyusedefaultcredentials>-ProxyUseDefaultCredentials</a></li><li><a href=#-repository>-Repository</a></li><li><a href=#-scratchdirectory>-ScratchDirectory</a></li><li><a href=#commonparameters>CommonParameters</a></li></ul></li><li><a href=#inputs>INPUTS</a></li><li><a href=#outputs>OUTPUTS</a><ul><li><a href=#lenovopackage>LenovoPackage</a></li></ul></li><li><a href=#notes>NOTES</a></li><li><a href=#related-links>RELATED LINKS</a></li></ul></nav></aside></header><article class=markdown><h1 id=get-lsupdate>Get-LSUpdate
+<a class=anchor href=#get-lsupdate>#</a></h1><h2 id=synopsis>SYNOPSIS
+<a class=anchor href=#synopsis>#</a></h2><p>Fetches available driver packages and updates for Lenovo computers</p><h2 id=syntax>SYNTAX
+<a class=anchor href=#syntax>#</a></h2><pre tabindex=0><code>Get-LSUpdate [[-Model] &lt;String&gt;] [[-Proxy] &lt;Uri&gt;] [[-ProxyCredential] &lt;PSCredential&gt;]
+ [-ProxyUseDefaultCredentials] [-All] [-IncludePhantomDevices] [[-ScratchDirectory] &lt;DirectoryInfo&gt;]
+ [[-Repository] &lt;String&gt;] [-NoTestApplicable] [-NoTestInstalled] [-NoTestSeverityOverride]
+ [-FailUnsupportedDependencies] [-PassUnsupportedInstallTests] [&lt;CommonParameters&gt;]
+</code></pre><h2 id=description>DESCRIPTION
+<a class=anchor href=#description>#</a></h2><p>{{ Fill in the Description }}</p><h2 id=examples>EXAMPLES
+<a class=anchor href=#examples>#</a></h2><h3 id=example-1>Example 1
+<a class=anchor href=#example-1>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=nb>PS </span><span class=n>C:</span><span class=p>\&gt;</span> <span class=p>{{</span> <span class=n>Add</span> <span class=n>example</span> <span class=n>code</span> <span class=n>here</span> <span class=p>}}</span>
+</span></span></code></pre></div><p>{{ Add example description here }}</p><h2 id=parameters>PARAMETERS
+<a class=anchor href=#parameters>#</a></h2><h3 id=-all>-All
+<a class=anchor href=#-all>#</a></h3><p>Return all packages, regardless of whether they are applicable to this specific machine or whether they are already installed.
+E.g.
+this will return LTE-Modem drivers even on machines that do not have the optional LTE-Modem installed, or 32-bit drivers on a 64-bit OS.
+Attempting to install such drivers will likely fail.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>SwitchParameter</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=l>Named</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-failunsupporteddependencies>-FailUnsupportedDependencies
+<a class=anchor href=#-failunsupporteddependencies>#</a></h3><p>Lenovo specifies different tests to determine whether each package is applicable to a machine or not.
+This module makes a best effort to parse, understand and check these.
+However, new kinds of tests may be added by Lenovo at any point and some currently in use are not supported yet either.
+By default, any unknown applicability test will be treated as passed which could result in packages that are not actually applicable being detected as applicable.
+This switch will make all applicability tests we can&rsquo;t really check fail instead, which could lead to an applicable package being detected as not applicable instead.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>SwitchParameter</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=l>Named</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-includephantomdevices>-IncludePhantomDevices
+<a class=anchor href=#-includephantomdevices>#</a></h3><p>Consider currently disconnected (&ldquo;phantom&rdquo;) devices as well when evaluating relevant packages.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>SwitchParameter</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=l>Named</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-model>-Model
+<a class=anchor href=#-model>#</a></h3><p>Specify an alternative Lenovo Computer Model to retrieve update packages for.
+You may want to use this together with &lsquo;-All&rsquo; so that packages are not filtered against your local machines configuration.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>String</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=l>None</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-notestapplicable>-NoTestApplicable
+<a class=anchor href=#-notestapplicable>#</a></h3><p>Do not check whether packages are applicable to the computer.
+The IsApplicable property of the package objects will be set to $null.
+This switch is only available together with -All.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>SwitchParameter</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=l>Named</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-notestinstalled>-NoTestInstalled
+<a class=anchor href=#-notestinstalled>#</a></h3><p>Do not check whether packages are already installed on the computer.
+The IsInstalled property of the package objects will be set to $null.
+This switch is only available together with -All.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>SwitchParameter</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=l>Named</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-notestseverityoverride>-NoTestSeverityOverride
+<a class=anchor href=#-notestseverityoverride>#</a></h3><p>Packages have a static severity classification, but may also contain a set of tests pertaining to currently installed hardware or drivers
+that, when passed, dynamically override and adjust the severity rating of a package up or down.
+By default, this module makes a best effort
+to parse, understand and check these.
+Use this parameter to skip all SeverityOverride tests instead and have all packages be returned with
+their static, default severity classification.
+This switch is available both with and without -All.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>SwitchParameter</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=l>Named</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-passunsupportedinstalltests>-PassUnsupportedInstallTests
+<a class=anchor href=#-passunsupportedinstalltests>#</a></h3><p>Lenovo specifies different tests to determine whether each package is already installed or not.
+This module makes a best effort to parse, understand and check these.
+However, new kinds of tests may be added by Lenovo at any point and some currently in use are not supported yet either.
+By default, any unknown install tests will be treated as failed which could result in a package that is actually installed being detected as missing.
+This switch will make all tests we can&rsquo;t really check pass instead, which could lead to a missing update being detected as installed instead.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>SwitchParameter</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=l>Named</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-proxy>-Proxy
+<a class=anchor href=#-proxy>#</a></h3><p>Specifies a proxy server for the connection to Lenovo.
+Enter the URI of a network proxy server.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>Uri</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=m>2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=l>None</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-proxycredential>-ProxyCredential
+<a class=anchor href=#-proxycredential>#</a></h3><p>Specifies a user account that has permission to use the proxy server that is specified by the -Proxy
+parameter.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>PSCredential</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=m>3</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=l>None</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-proxyusedefaultcredentials>-ProxyUseDefaultCredentials
+<a class=anchor href=#-proxyusedefaultcredentials>#</a></h3><p>Indicates that the cmdlet uses the credentials of the current user to access the proxy server that is
+specified by the -Proxy parameter.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>SwitchParameter</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=l>Named</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-repository>-Repository
+<a class=anchor href=#-repository>#</a></h3><p>The path to a package repository.
+This can either be a HTTP/S URL pointing to a webserver or a filesystem path to a directory.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>String</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=m>5</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=l>Https://download.lenovo.com/catalog</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=-scratchdirectory>-ScratchDirectory
+<a class=anchor href=#-scratchdirectory>#</a></h3><p>The path to a directory where temporary files are downloaded to for use during the search for packages.
+Defaults to $env:TEMP.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>Type</span><span class=p>:</span><span class=w> </span><span class=l>DirectoryInfo</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Parameter Sets</span><span class=p>:</span><span class=w> </span><span class=l>(All)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Aliases</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Required</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Position</span><span class=p>:</span><span class=w> </span><span class=m>4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Default value</span><span class=p>:</span><span class=w> </span><span class=l>$env:TEMP</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept pipeline input</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>Accept wildcard characters</span><span class=p>:</span><span class=w> </span><span class=kc>False</span><span class=w>
+</span></span></span></code></pre></div><h3 id=commonparameters>CommonParameters
+<a class=anchor href=#commonparameters>#</a></h3><p>This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see <a href="http://go.microsoft.com/fwlink/?LinkID=113216">about_CommonParameters</a>.</p><h2 id=inputs>INPUTS
+<a class=anchor href=#inputs>#</a></h2><h2 id=outputs>OUTPUTS
+<a class=anchor href=#outputs>#</a></h2><h3 id=lenovopackage>LenovoPackage
+<a class=anchor href=#lenovopackage>#</a></h3><h2 id=notes>NOTES
+<a class=anchor href=#notes>#</a></h2><h2 id=related-links>RELATED LINKS
+<a class=anchor href=#related-links>#</a></h2></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#synopsis>SYNOPSIS</a></li><li><a href=#syntax>SYNTAX</a></li><li><a href=#description>DESCRIPTION</a></li><li><a href=#examples>EXAMPLES</a><ul><li><a href=#example-1>Example 1</a></li></ul></li><li><a href=#parameters>PARAMETERS</a><ul><li><a href=#-all>-All</a></li><li><a href=#-failunsupporteddependencies>-FailUnsupportedDependencies</a></li><li><a href=#-includephantomdevices>-IncludePhantomDevices</a></li><li><a href=#-model>-Model</a></li><li><a href=#-notestapplicable>-NoTestApplicable</a></li><li><a href=#-notestinstalled>-NoTestInstalled</a></li><li><a href=#-notestseverityoverride>-NoTestSeverityOverride</a></li><li><a href=#-passunsupportedinstalltests>-PassUnsupportedInstallTests</a></li><li><a href=#-proxy>-Proxy</a></li><li><a href=#-proxycredential>-ProxyCredential</a></li><li><a href=#-proxyusedefaultcredentials>-ProxyUseDefaultCredentials</a></li><li><a href=#-repository>-Repository</a></li><li><a href=#-scratchdirectory>-ScratchDirectory</a></li><li><a href=#commonparameters>CommonParameters</a></li></ul></li><li><a href=#inputs>INPUTS</a></li><li><a href=#outputs>OUTPUTS</a><ul><li><a href=#lenovopackage>LenovoPackage</a></li></ul></li><li><a href=#notes>NOTES</a></li><li><a href=#related-links>RELATED LINKS</a></li></ul></nav></div></aside></main></body></html>
