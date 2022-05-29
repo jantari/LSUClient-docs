@@ -14,6 +14,39 @@ jobs:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
+      - name: Download current LSUClient Module
+        run: |
+          TAR_DOWNLOAD_URL=$(curl -sSL https://api.github.com/repos/jantari/LSUClient/releases/latest)
+          curl -sSL $TAR_DOWNLOAD_URL -o ./lsuclient-latest.tar.gz
+          mkdir /tmp/lsuclient-latest
+          tar -xzvf ./lsuclient-latest -C /tmp/lsuclient-latest
+
+      - name: Install PlatyPS Module
+        run: |
+          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+          Install-Module PlatyPS -Scope CurrentUser -Repository PSGallery -RequiredVersion 0.14.2 -Force
+        shell: pwsh -Command "$ProgressPreference = 'SilentlyContinue'; & '{0}'"
+
+      - name: Generate cmdlet docs with PlatyPS
+        run: |
+          Write-Output "PWD: $PWD"
+          $ModuleFile = Get-ChildItem -LiteralPath "/tmp/lsuclient-latest" -Filter "LSUClient.psd1" -Recurse
+          Write-Output "FOUND LSUCIENT: $ModuleFile"
+          Import-Module PlatyPS -RequiredVersion 0.14.2
+          Import-Module $ModuleFile
+
+          $DocPages = & (Get-Module LSUClient) { New-MarkdownHelp -Module LSUClient -OutputFolder ./content/docs/cmdlets/ -NoMetadata -AlphabeticParamsOrder -Force }
+
+          # Fix the title of the pages by adding YAML metadata
+          foreach ($mdFile in $DocPages) {
+            $Header = "---", "title: $($mdFile.BaseName)", "---", ""
+            $Content = Get-Content $mdFile
+            Set-Content -Path $mdFile -Value ($Header + $Content)
+          }
+
+          Get-ChildItem -LiteralPath ./content/docs/cmdlets
+        shell: pwsh -Command "$ProgressPreference = 'SilentlyContinue'; & '{0}'"
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
