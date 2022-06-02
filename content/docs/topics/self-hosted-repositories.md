@@ -92,15 +92,16 @@ Assuming a ThinkPad A275, model **20KD**001LGE, running Windows 10 as an example
 LSUClients process for discovering packages in a repository is as follows:
 
 {{< mermaid >}}
-flowchart TD
-    Start(Start) --> B{"Does 20KD_Win10.xml exist\nin the repository root?"}
-    B ---->|No| C{"Does database.xml exist\nin the repository root?"}
-    C -->|No| F(Error: No packages found)
-    C -->|Yes| OK(Read it and find packages)
+%%{init:{"theme":"neutral"}}%%
+flowchart TD;
+    Start([Start]) --> B{"Does 20KD_Win10.xml exist\nin the repository root?"}
+    B --> |No| C{"Does database.xml exist\nin the repository root?"}
+    C --> |No| F([Error: No packages found])
+    C --> |Yes| OK[Read it and find packages]
     B --> |Yes| H
     OK -->G{Are there packages for\nmodel 20KD + Windows 10?}
     G -->|No| F
-    G -->|Yes| H(Process packages)
+    G -->|Yes| H[Process packages]
 {{< /mermaid >}}
 
 This means that when both a `database.xml` file and model-and-OS-specific XML files are present in a repository,
