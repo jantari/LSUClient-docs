@@ -80,10 +80,8 @@ This is the repository structure that Update Retriever creates. It uses a single
 The `database.xml` package index does not preserve package Category information. This means that all packages sourced from repositories of this type will always have empty Categories.
 {{< /hint >}}
 
-{{< hint warning >}}
-Creating a Filesystem-based repository with Update Retriever and then serving that directory over HTTP(S) will currently not work with LSUClient.
-The `database.xml` file Update Retriever creates references the individual packages by a relative path containing backslashes, which are escaped
-to `%5C` in URLs rather than treated as path separators.
+{{< hint info >}}
+You can also create and manage a repository with Update Retriever and then serve it (its root directory) via HTTP(S).
 {{< /hint >}}
 
 ## Package finding process
