@@ -1,5 +1,5 @@
 ---
-weight: 50
+weight: 100
 ---
 
 # Versioning
@@ -33,7 +33,7 @@ only for logging and "human consumption" and not to support scripting workloads.
 I must admit, I *sometimes* make exceptions from this rule for breaking changes I consider to be "very very minor" in that:
 
 1. I feel they are likely not going to impact any or only very few users
-2. They are trivial to adjust for, as in the change(s) required to get everything working again with the new version are very very small
+2. They are trivial to adjust for, as in the change(s) required to get everything working like before with the new version are very small
 
 An example of this is the change of the type of the `URL` property on the `[LenovoUpdate]` objects from `[System.Uri]` to `[System.String]` with Version 1.3.0.
 So if you were accessing a property or method unique to the `[System.Uri]` object, for example:

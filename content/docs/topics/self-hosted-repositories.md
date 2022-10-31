@@ -1,6 +1,6 @@
 ---
 title: Self-hosted repositories
-weight: 40
+weight: 50
 bookToc: true
 ---
 
