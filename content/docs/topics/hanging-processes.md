@@ -28,8 +28,9 @@ Often when a process is stuck indefinitely, it is because it did not run entirel
 for user input to continue. When this happens it can easily be seen by someone in front of the computer, but to also make identifying this
 behavior remotely easier (without being in front of the computer), when a process is killed by LSUClient due to hitting a runtime limit,
 LSUClient checks for any open windows and if there are any, captures and prints their text contents to the console. An example output of
-this can be found further down. The messages in the open windows often explain or can be googled to understand why the problem occurred.
-Sometimes a process may also leave logfiles that can help troubleshoot the cause of the hanging.
+this can be found [below](#example-of-a-package-installation-exceeding-the-maxinstallerruntime). The messages in the open windows often
+explain or can be googled to understand why the problem occurred. Sometimes a process may also leave logfiles that can help troubleshoot
+the cause of the hanging.
 
 You can also search the issues on GitHub for the package name and keywords like "hang" or "stuck" to see if other people have had the same
 problem. For example, [GitHub issue #49](https://github.com/jantari/LSUClient/issues/49) details a problem and solution with an Intel Graphics
@@ -57,6 +58,8 @@ it can be fixed.
 
 For example, reproducing a problem with an Intel Graphics Driver installer that was [reported on GitHub](https://github.com/jantari/LSUClient/issues/49)
 now gets logged with the following output when it is killed:
+
+### Example of a package installation exceeding the MaxInstallerRuntime
 
 ```plain
 jantari@AMDESKTOP:~
