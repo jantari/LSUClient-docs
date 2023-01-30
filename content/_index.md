@@ -6,7 +6,7 @@ asciinema: true
 ---
 
 {{< center >}}
-<h1 id="lsuclient" style="margin-top: 0">LSUClient</h1>
+<h1 id="lsuclient" style="margin-top: 0; font-weight: bold;">LSUClient</h1>
 
 {{< render-markdown >}}
 
@@ -16,6 +16,8 @@ asciinema: true
 
 ![logo](./logo_220px.png)
 
+Orchestrate driver, BIOS/UEFI and firmware updates for Lenovo computers - with PowerShell!
+
 {{< /render-markdown >}}
 {{< /center >}}
 
@@ -23,7 +25,10 @@ asciinema: true
 <div style="display:block;margin-left:auto;margin-right:auto" class="asciinema-sizer">
 {{< /raw-html >}}
 
-An all-PowerShell alternative to "Lenovo System Update" that gives you the control and flexibility to manage
+<br>&nbsp;
+<br>
+
+LSUClient is an all-PowerShell alternative to "Lenovo System Update" that gives you the control and flexibility to manage
 driver and firmware updates like you've always wanted to.
 
 ## Installation
@@ -32,7 +37,7 @@ driver and firmware updates like you've always wanted to.
 Install-Module -Name 'LSUClient'
 ```
 
-## Highlight features
+## Highlight Features
 
 - Does driver, BIOS/UEFI, firmware and utility software updates
 - Allows for fully silent and unattended update runs
@@ -44,7 +49,7 @@ Install-Module -Name 'LSUClient'
 - Supports not only business computers but consumer lines too (e.g. IdeaPad)
 - Free, open-source and permissively licensed!
 
-## Demo!
+## Watch A Demo
 
 {{< raw-html >}}
 </div>

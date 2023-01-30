@@ -1,10 +1,10 @@
 ---
-title: Self-hosted repositories
+title: Self-Hosted Repositories
 weight: 50
 bookToc: true
 ---
 
-# Self-hosted repositories
+# Self-Hosted Repositories
 
 By default LSUClient fetches packages from the official, public Lenovo Update Catalog at https://download.lenovo.com/catalog.
 However, just like System Update, it also supports custom, self-hosted package repositories.

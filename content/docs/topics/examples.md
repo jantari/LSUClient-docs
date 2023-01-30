@@ -1,15 +1,19 @@
 ---
-title: Basic Examples
+title: Getting Started
 weight: 10
 bookToc: false
 ---
 
-# Basic Examples
+# Getting Started
 
-These are some examples to try out.
-For all available parameters and guidance on how to use them run `Get-Help -Detailed` on the functions in this module.
+LSUClient has two main cmdlets: `Get-LSUpdate` and `Install-LSUpdate` - they basically do what their name implies!
 
-### Get available updates
+These are some examples to get started with.
+To see all available parameters of each cmdlet and guidance on how to use them either see the online
+**Cmdlet Reference** in the navigation bar on the left or install the module and use `Get-Help -Detailed`
+or tab-completion to explore the cmdlets.
+
+### Get available updates for the system
 ```powershell
 Get-LSUpdate
 ```
@@ -21,7 +25,7 @@ $updates | Install-LSUpdate -Verbose
 ```
 
 ### Get and install available updates, with some simple progress output
-```powershell
+```powershell {linenos=table}
 $updates = Get-LSUpdate
 $i = 1
 foreach ($update in $updates) {
@@ -32,7 +36,7 @@ foreach ($update in $updates) {
 ```
 
 ### Install only packages that can be installed silently and non-interactively
-```powershell
+```powershell {linenos=table}
 $updates = Get-LSUpdate | Where-Object { $_.Installer.Unattended }
 $updates | Save-LSUpdate -Verbose
 $updates | Install-LSUpdate -Verbose
@@ -49,11 +53,13 @@ $updates = Get-LSUpdate -All
 ```
 By default, `Get-LSUpdate` only returns "needed" updates. Needed updates are those that are applicable to
 the system and not yet installed. If you want to retrieve all available packages instead, use `Get-LSUpdate -All`.
-
-It is possible to filter out the unneeded packages later by looking at the `IsApplicable` and `IsInstalled` properties.
+This can be of interest if you want to re-install a driver package you believe may be broken or as a workaround when
+a package is detected as not applicable but you still want to install it (e.g. you might want to pre-install drivers
+for hardware such as an LTE modem or a docking station even though they are not *currently* connected to the machine).
+It is also possible to filter out the unneeded packages later by looking at the `IsApplicable` and `IsInstalled` properties.
 The default logic is equivalent to: `Get-LSUpdate -All | Where-Object { $_.IsApplicable -and -not $_.IsInstalled }`.
 
-### Download drivers for another computer
+### Download drivers for another computer model
 ```powershell
 Get-LSUpdate -Model '20LS' -All | Save-LSUpdate -Path 'C:\Drivers\20LS' -ShowProgress
 ```

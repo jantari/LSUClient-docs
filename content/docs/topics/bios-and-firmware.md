@@ -1,9 +1,9 @@
 ---
-title: BIOS/UEFI and Firmware updates
+title: BIOS/UEFI and Firmware Updates
 weight: 30
 ---
 
-# BIOS/UEFI and other firmware updates
+# BIOS/UEFI and other Firmware Updates
 
 LSUClient will install BIOS/UEFI updates silently when possible.
 
@@ -58,7 +58,7 @@ It may be removed in a future major release of LSUClient. Use the technique desc
 
 There is also a `-SaveBIOSUpdateInfoToRegistry` parameter on `Install-LSUpdate`.
 
-Prior to version 1.4.0, this used to be the only way for LSUClient to communicate a required power cycle back to you. 
+Prior to version 1.4.0, this used to be the only way for LSUClient to communicate a required power cycle back to you.
 
 When `Install-LSUpdate` is called with this parameter and it successfully installs a BIOS update,
 it will write some registry keys to `HKLM\Software\LSUClient\BIOSUpdate`, including the string
@@ -93,7 +93,8 @@ Not all packages have type information, sometimes `Type` is `$null` so don't rel
 {{< hint warning >}}
 Packages sourced from internal repositories created with "Lenovo Update Retriever" never have `Category` information.
 
-In that scenario it is best to either not include BIOS updates in your repository at all or to filter them by their IDs before installing.
+In that scenario it is best to either not have BIOS updates in your repository at all, make sure
+they always have their `Type` set correctly or to filter them by their IDs before installing.
 {{< /hint >}}
 
 Filtering out BIOS/UEFI updates:
