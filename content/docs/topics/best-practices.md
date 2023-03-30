@@ -91,3 +91,18 @@ Stop-Transcript
 ```
 
 {{< /details >}}
+
+## 4. Keep $ErrorActionPreference set to Continue
+
+Not every internal operation LSUClient carries out will and must neccesarily always succeed. Sometimes a file is
+[in use by another process](https://github.com/jantari/LSUClient/issues/80) or [just missing from Lenovos servers](https://github.com/jantari/LSUClient/issues/37).
+
+Errors like these often only affect a single package out of many, and if they are severe enough that a particular package
+cannot be processed further then it will be skipped, but all other packages can still be processed normally. This is the
+behavior of PowerShells' default `ErrorActionPreference` setting: `Continue`. LSUClient does not attempt to silence or hide
+errors because they contain useful information about what went wrong and why. Particularly if you host your own package
+repository, any repository-related failures for example are important to know about so you can address them.
+
+So while it is a common best practice for PowerShell scripts, with `ErrorActionPreference` set to `Stop` one
+of these "small" errors will always halt your entire script. Because of this I recommend against setting the
+`ErrorActionPreference` to `Stop` in your LSUClient scripts.
