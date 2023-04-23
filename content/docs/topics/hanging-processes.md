@@ -26,15 +26,48 @@ packages that can be installed silently and non-interactively in the first place
 
 Often when a process is stuck indefinitely, it is because it did not run entirely silently, opened up a graphical window and is waiting
 for user input to continue. When this happens it can easily be seen by someone in front of the computer, but to also make identifying this
-behavior remotely easier (without being in front of the computer), when a process is killed by LSUClient due to hitting a runtime limit,
-LSUClient checks for any open windows and if there are any, captures and prints their text contents to the console. An example output of
+behavior remotely easier (without being in front of the computer), when a process has been running for longer than 5 minutes LSUClient
+starts checking for any open windows and if there are any, captures and prints their text contents to the console. An example output of
 this can be found [below](#example-of-a-package-installation-exceeding-the-maxinstallerruntime). The messages in the open windows often
 explain or can be googled to understand why the problem occurred. Sometimes a process may also leave logfiles that can help troubleshoot
 the cause of the hanging.
 
+{{< hint info >}}
+The feature of looking for open windows of a process run by LSUClient was first introduced in version 1.5.0. Then, the check only ran
+once when and *if* the process hit its configured runtime limit. Starting with LSUClient 1.5.3, all processes are investigated periodically
+once they've been running for longer than 5 minutes, independently of a configured runtime limit.
+{{< /hint >}}
+
 You can also search the issues on GitHub for the package name and keywords like "hang" or "stuck" to see if other people have had the same
 problem. For example, [GitHub issue #49](https://github.com/jantari/LSUClient/issues/49) details a problem and solution with an Intel Graphics
 Driver installer that, despite being run in silent mode, pops up an error message under certain conditions and then sits there indefinitely.
+
+### Hanging processes in session 0
+
+An additional complication is if you run LSUClient (and therefore its child-processes as well) in session 0. Many software deployment solutions,
+MDMs, RMMs and other tools you may use to run your LSUClient scripts will run them from a service in session 0. Graphical windows can be created
+but are not drawn/rendered in session 0 so if a process is running there and gets stuck due to opening a window and waiting for someone to interact
+with it, the window will not be visible and only a limited set of information about it (such as its dimensions) can even be gathered by LSUClient.
+Any text inside a window cannot be retrieved and attempts to screenshot the window only show black. If you run LSUClient in session 0 and experience
+hanging processes, it is best to reproduce the problem running LSUClient in a graphical logon session (such as via RDP or in front of the physical
+device) to ensure any opened windows and their contents are fully drawn and visible. When running with the `-Debug` parameter, LSUClient prints the
+session ID it and processes started by it are running in, e.g.:
+
+```plain {hl_lines=[4,7,8]}
+...
+
+DEBUG: Process IDs in job (without runspace): 14076
+DEBUG: (Current session ID: 1, Environment.UserInteractive: True)
+WARNING: Process 'C:\Windows\Temp\n2hdr35w\installer.exe' has been running for 00:05:00.1928042
+WARNING: 14076: 'Installer' started at 20:34:04.3837487
+DEBUG: Process 14076 ('Installer'):
+DEBUG:   Session: 1
+DEBUG:   CommandLine: "C:\Windows\Temp\n2hdr35w\installer.exe" -s
+DEBUG:   StartTime: 20:34:04.3837487
+DEBUG:   Parent Id: 14384
+
+...
+```
 
 ## Killing hanging processes
 
