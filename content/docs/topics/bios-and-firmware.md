@@ -29,7 +29,7 @@ or shutdowns on its own, however it's easy for you to:
     [array]$results = Install-LSUpdate -Package $updates
     ```
 
-2. Then test for the `PendingAction` values `REBOOT_MANDATORY` or `SHUTDOWN` and handle them in your script:
+2. Then test for the `PendingAction` values `REBOOT_MANDATORY` and `SHUTDOWN` and handle them in your script:
     ```powershell
     if ($results.PendingAction -contains 'REBOOT_MANDATORY') {
         # reboot immediately or set a marker for yourself to perform the reboot shortly
@@ -43,7 +43,12 @@ or shutdowns on its own, however it's easy for you to:
     foreach ($update in $updates) {
         $result = Install-LSUpdate -Package $update
         switch ($result.PendingAction) {
-            # your logic here
+            'REBOOT_MANDATORY' {
+                # reboot immediately or set a marker for yourself to perform the reboot shortly
+            }
+            'SHUTDOWN' {
+                # shutdown immediately or set a marker for yourself to perform the shutdown shortly
+            }
         }
     }
     ```

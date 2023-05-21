@@ -24,17 +24,6 @@ $updates = Get-LSUpdate
 $updates | Install-LSUpdate -Verbose
 ```
 
-### Get and install available updates, with some simple progress output
-```powershell {linenos=table}
-$updates = Get-LSUpdate
-$i = 1
-foreach ($update in $updates) {
-    Write-Host "Installing update $i of $($updates.Count): $($update.Title)"
-    Install-LSUpdate -Package $update -Verbose
-    $i++
-}
-```
-
 ### Install only packages that can be installed silently and non-interactively
 ```powershell {linenos=table}
 $updates = Get-LSUpdate | Where-Object { $_.Installer.Unattended }
@@ -46,6 +35,18 @@ Filtering out non-unattended packages like this is strongly recommended when usi
 remote execution via PowerShell Remoting, ssh or any other situation in which you run these commands remotely
 or as part of an automated process. Packages with installers that are not unattended may force reboots or
 attempt to start a GUI setup on the machine and, if successful, halt until someone clicks through the dialogs.
+
+### Get and install available updates, with some basic progress output
+```powershell {linenos=table}
+$updates = Get-LSUpdate
+$updates | Save-LSUpdate -Verbose
+$i = 1
+foreach ($update in $updates) {
+    Write-Host "Installing update $i of $($updates.Count): $($update.Title)"
+    Install-LSUpdate -Package $update -Verbose
+    $i++
+}
+```
 
 ### Get all available packages
 ```powershell
