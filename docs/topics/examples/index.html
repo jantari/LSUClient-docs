@@ -14,22 +14,7 @@ or tab-completion to explore the cmdlets.</p><h3 id=get-available-updates-for-th
 </span></span></code></pre></div><h3 id=get-and-install-available-updates>Get and install available updates
 <a class=anchor href=#get-and-install-available-updates>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=nv>$updates</span> <span class=p>=</span> <span class=nb>Get-LSUpdate</span>
 </span></span><span class=line><span class=cl><span class=nv>$updates</span> <span class=p>|</span> <span class=nb>Install-LSUpdate</span> <span class=n>-Verbose</span>
-</span></span></code></pre></div><h3 id=get-and-install-available-updates-with-some-simple-progress-output>Get and install available updates, with some simple progress output
-<a class=anchor href=#get-and-install-available-updates-with-some-simple-progress-output>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=nv>$updates</span> <span class=p>=</span> <span class=nb>Get-LSUpdate</span>
-</span></span><span class=line><span class=cl><span class=nv>$i</span> <span class=p>=</span> <span class=mf>1</span>
-</span></span><span class=line><span class=cl><span class=k>foreach</span> <span class=p>(</span><span class=nv>$update</span> <span class=k>in</span> <span class=nv>$updates</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nb>Write-Host</span> <span class=s2>&#34;Installing update </span><span class=nv>$i</span><span class=s2> of </span><span class=p>$(</span><span class=nv>$updates</span><span class=p>.</span><span class=n>Count</span><span class=p>)</span><span class=s2>: </span><span class=p>$(</span><span class=nv>$update</span><span class=p>.</span><span class=n>Title</span><span class=p>)</span><span class=s2>&#34;</span>
-</span></span><span class=line><span class=cl>    <span class=nb>Install-LSUpdate</span> <span class=n>-Package</span> <span class=nv>$update</span> <span class=n>-Verbose</span>
-</span></span><span class=line><span class=cl>    <span class=nv>$i</span><span class=p>++</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><h3 id=install-only-packages-that-can-be-installed-silently-and-non-interactively>Install only packages that can be installed silently and non-interactively
+</span></span></code></pre></div><h3 id=install-only-packages-that-can-be-installed-silently-and-non-interactively>Install only packages that can be installed silently and non-interactively
 <a class=anchor href=#install-only-packages-that-can-be-installed-silently-and-non-interactively>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
@@ -39,7 +24,24 @@ or tab-completion to explore the cmdlets.</p><h3 id=get-available-updates-for-th
 </span></span></code></pre></td></tr></table></div></div><p>Filtering out non-unattended packages like this is strongly recommended when using this module in MDT, SCCM, PDQ,
 remote execution via PowerShell Remoting, ssh or any other situation in which you run these commands remotely
 or as part of an automated process. Packages with installers that are not unattended may force reboots or
-attempt to start a GUI setup on the machine and, if successful, halt until someone clicks through the dialogs.</p><h3 id=get-all-available-packages>Get all available packages
+attempt to start a GUI setup on the machine and, if successful, halt until someone clicks through the dialogs.</p><h3 id=get-and-install-available-updates-with-some-basic-progress-output>Get and install available updates, with some basic progress output
+<a class=anchor href=#get-and-install-available-updates-with-some-basic-progress-output>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=nv>$updates</span> <span class=p>=</span> <span class=nb>Get-LSUpdate</span>
+</span></span><span class=line><span class=cl><span class=nv>$updates</span> <span class=p>|</span> <span class=nb>Save-LSUpdate</span> <span class=n>-Verbose</span>
+</span></span><span class=line><span class=cl><span class=nv>$i</span> <span class=p>=</span> <span class=mf>1</span>
+</span></span><span class=line><span class=cl><span class=k>foreach</span> <span class=p>(</span><span class=nv>$update</span> <span class=k>in</span> <span class=nv>$updates</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nb>Write-Host</span> <span class=s2>&#34;Installing update </span><span class=nv>$i</span><span class=s2> of </span><span class=p>$(</span><span class=nv>$updates</span><span class=p>.</span><span class=n>Count</span><span class=p>)</span><span class=s2>: </span><span class=p>$(</span><span class=nv>$update</span><span class=p>.</span><span class=n>Title</span><span class=p>)</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nb>Install-LSUpdate</span> <span class=n>-Package</span> <span class=nv>$update</span> <span class=n>-Verbose</span>
+</span></span><span class=line><span class=cl>    <span class=nv>$i</span><span class=p>++</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=get-all-available-packages>Get all available packages
 <a class=anchor href=#get-all-available-packages>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=nv>$updates</span> <span class=p>=</span> <span class=nb>Get-LSUpdate</span> <span class=n>-All</span>
 </span></span></code></pre></div><p>By default, <code>Get-LSUpdate</code> only returns &ldquo;needed&rdquo; updates. Needed updates are those that are applicable to
 the system and not yet installed. If you want to retrieve all available packages instead, use <code>Get-LSUpdate -All</code>.
