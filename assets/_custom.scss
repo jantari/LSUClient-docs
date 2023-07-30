@@ -1,3 +1,20 @@
+// Ensure the book-page (central content and its background color) fills 100% of the available vertical space
+html, body {
+    height: 100%;
+}
+main.container {
+    min-height: 100%;
+}
+
+pre.chroma {
+    background-color: var(--nord0);
+}
+
+// Prevent ugly focus border around code blocks when clicking on them
+pre.chroma:focus {
+    outline: none;
+}
+
 .asciinema-sizer {
     width: 70%;
     height: 70%;
@@ -21,8 +38,4 @@
 // elements as we don't want scrollbars inside the asciinema-player
 .asciinema-player pre {
     overflow-x: hidden
-}
-
-pre.chroma {
-    background-color: var(--nord0);
 }
