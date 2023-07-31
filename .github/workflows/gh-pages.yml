@@ -33,6 +33,11 @@ jobs:
           Write-Output "PWD: $PWD"
           $ModuleFile = Get-ChildItem -LiteralPath "/tmp/lsuclient-latest" -Filter "LSUClient.psd1" -Recurse
           Write-Output "FOUND LSUCIENT: $ModuleFile"
+
+          # Remove this again when LSUClient 1.6.1+ is out
+          Write-Output "Applying hacky workaround to get LSUClient 1.6.0 to import under Linux."
+          sed -i 's/\[wmisearcher\]/[System.Management.ManagementObjectSearcher]/' ($ModuleFile.FullName -replace 'psd1$', 'psm1')
+
           Import-Module PlatyPS -RequiredVersion 0.14.2
           Import-Module $ModuleFile
 
