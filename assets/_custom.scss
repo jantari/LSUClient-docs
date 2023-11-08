@@ -6,6 +6,15 @@ main.container {
     min-height: 100%;
 }
 
+.book-section-flat {
+  > a,
+  > span,
+  > label {
+    font-weight: bolder;
+    font-size: 1.2rem;
+  }
+}
+
 pre.chroma {
     background-color: var(--nord0);
 }
@@ -38,4 +47,27 @@ pre.chroma:focus {
 // elements as we don't want scrollbars inside the asciinema-player
 .asciinema-player pre {
     overflow-x: hidden
+}
+
+// Animate once on hover-over
+.beat-on-hover:hover i {
+  -webkit-animation-name: fa-beat;
+  animation-name: fa-beat;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+  animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+  animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+  animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+// This removes the margin betwen our last, fake content section header
+// and the external links following afterwards which are injected from
+// layouts/partials/docs/inject/menu-after.html for more flexibility
+.book-section-flat:last-child {
+  margin-bottom: 0;
 }
