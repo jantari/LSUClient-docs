@@ -1,21 +1,359 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Introduction on LSUClient Documentation</title><link>https://jantari.github.io/LSUClient-docs/</link><description>Recent content in Introduction on LSUClient Documentation</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://jantari.github.io/LSUClient-docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/examples/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/examples/</guid><description>Getting Started # LSUClient has two main cmdlets: Get-LSUpdate and Install-LSUpdate - they basically do what their name implies!
-These are some examples to get started with. To see all available parameters of each cmdlet and guidance on how to use them either see the online Cmdlet Reference in the navigation bar on the left or install the module and use Get-Help -Detailed or tab-completion to explore the cmdlets.</description></item><item><title/><link>https://jantari.github.io/LSUClient-docs/docs/topics/best-practices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/best-practices/</guid><description>Best Practices # 1. Search for and install updates a few times in a loop # Some packages and updates depend on others already being installed, so they might not show up during the first search for updates. If you want to make sure &amp;ldquo;everything&amp;rdquo; has been installed and/or updated it is best to re-run Get-LSUpdate and Install-LSUpdate a few times or until no more updates are found.
-Example This is a minimal example implementation of this best practice for demonstration purposes:</description></item><item><title>BIOS/UEFI and Firmware Updates</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/bios-and-firmware/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/bios-and-firmware/</guid><description>BIOS/UEFI and other Firmware Updates # LSUClient will install BIOS/UEFI updates silently when possible.
-Like with any other package, those for which a silent installation is supported will have their .Installer.Unattended property set to $True. If you get a BIOS/UEFI update for which .Installer.Unattended is $False, that means it uses a type of installer/flasher for which either no silent install options exist or for which LSUClient doesn&amp;rsquo;t support performing silent installs yet.</description></item><item><title>Troubleshooting Hanging Processes</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/hanging-processes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/hanging-processes/</guid><description>Hanging processes # By nature, LSUClient has to run and wait on external processes such as hardware-detection routines or driver installers to complete.
-The executables and installers Lenovo bundles in their packages are generally designed to run silently and without user interaction. This means LSUClient can just execute these processes, wait for them to complete and then continue. However, it is unfortunately sometimes the case that a process LSUClient is waiting on gets stuck indefinitely and never exits on its own.</description></item><item><title>Self-Hosted Repositories</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/self-hosted-repositories/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/self-hosted-repositories/</guid><description>Self-Hosted Repositories # By default LSUClient fetches packages from the official, public Lenovo Update Catalog at https://download.lenovo.com/catalog. However, just like System Update, it also supports custom, self-hosted package repositories.
-It is currently not possible to create or manage such a custom package repository with LSUClient. Self-hosted repositories must either be created with the &amp;ldquo;Lenovo Update Retriever&amp;rdquo; program or finagled in place manually or with your own scripts if you understand the structure (see repository formats).</description></item><item><title/><link>https://jantari.github.io/LSUClient-docs/docs/topics/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/versioning/</guid><description>Versioning # LSUClient uses a three-part version number MAJOR.MINOR.PATCH and follows SemVer 2.0.0.
-This means you can generally expect all your scripts and integrations to keep working with any one major version (such as 1.x.x).
-There is only ever one current release of LSUClient, there is no parallel maintenance of older releases or prior versions. As soon as a new release is out the prior one is obsoleted.
-What is and isn&amp;rsquo;t covered by the semantic versioning promise # Semantic versioning communicates changes in a softwares &amp;ldquo;public API&amp;rdquo;.</description></item><item><title>Get-LSUClientConfiguration</title><link>https://jantari.github.io/LSUClient-docs/docs/cmdlets/get-lsuclientconfiguration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/cmdlets/get-lsuclientconfiguration/</guid><description> Get-LSUClientConfiguration # SYNOPSIS # SYNTAX # Get-LSUClientConfiguration [&amp;lt;CommonParameters&amp;gt;] DESCRIPTION # Returns the currently active configuration options
-EXAMPLES # Example 1 # PS C:\&amp;gt; {{ Add example code here }} {{ Add example description here }}
-PARAMETERS # CommonParameters # This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters.
-INPUTS # OUTPUTS # NOTES # RELATED LINKS #</description></item><item><title>Get-LSUpdate</title><link>https://jantari.github.io/LSUClient-docs/docs/cmdlets/get-lsupdate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/cmdlets/get-lsupdate/</guid><description>Get-LSUpdate # SYNOPSIS # Fetches available driver packages and updates for Lenovo computers
-SYNTAX # Get-LSUpdate [[-Model] &amp;lt;String&amp;gt;] [[-Proxy] &amp;lt;Uri&amp;gt;] [[-ProxyCredential] &amp;lt;PSCredential&amp;gt;] [-ProxyUseDefaultCredentials] [-All] [-IncludePhantomDevices] [[-ScratchDirectory] &amp;lt;DirectoryInfo&amp;gt;] [[-Repository] &amp;lt;String&amp;gt;] [[-MachineCharacteristicsOverride] &amp;lt;Hashtable&amp;gt;] [-NoTestApplicable] [-NoTestInstalled] [-NoTestSeverityOverride] [-FailUnsupportedDependencies] [-PassUnsupportedInstallTests] [&amp;lt;CommonParameters&amp;gt;] DESCRIPTION # Fetches available driver packages and updates for Lenovo computers
-EXAMPLES # EXAMPLE 1 # # Get available updates for the local computer PS&amp;gt; Get-LSUpdate EXAMPLE 2 # # Get all available packages for a different computer model PS&amp;gt; Get-LSUpdate -Model 20K70000GE -All PARAMETERS # -All # Return all packages, regardless of whether they are applicable to this specific machine or whether they are already installed.</description></item><item><title>Install-LSUpdate</title><link>https://jantari.github.io/LSUClient-docs/docs/cmdlets/install-lsupdate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/cmdlets/install-lsupdate/</guid><description>Install-LSUpdate # SYNOPSIS # Installs a Lenovo update package. Downloads it if not previously downloaded.
-SYNTAX # Install-LSUpdate [-Package] &amp;lt;PSObject&amp;gt; [-Path &amp;lt;DirectoryInfo&amp;gt;] [-SaveBIOSUpdateInfoToRegistry] [-Proxy &amp;lt;Uri&amp;gt;] [-ProxyCredential &amp;lt;PSCredential&amp;gt;] [-ProxyUseDefaultCredentials] [&amp;lt;CommonParameters&amp;gt;] DESCRIPTION # Installs a Lenovo update package. Downloads it if not previously downloaded.
-EXAMPLES # Example 1 # PS C:\&amp;gt; {{ Add example code here }} {{ Add example description here }}
-PARAMETERS # -Package # The Lenovo package object to install</description></item><item><title>Save-LSUpdate</title><link>https://jantari.github.io/LSUClient-docs/docs/cmdlets/save-lsupdate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/cmdlets/save-lsupdate/</guid><description>Save-LSUpdate # SYNOPSIS # Downloads Lenovo update packages to disk
-SYNTAX # Save-LSUpdate [-Package] &amp;lt;PSObject&amp;gt; [-Proxy &amp;lt;Uri&amp;gt;] [-ProxyCredential &amp;lt;PSCredential&amp;gt;] [-ProxyUseDefaultCredentials] [-ShowProgress] [-Force] [-Path &amp;lt;DirectoryInfo&amp;gt;] [&amp;lt;CommonParameters&amp;gt;] DESCRIPTION # Downloads Lenovo update packages to disk
-EXAMPLES # Example 1 # PS C:\&amp;gt; {{ Add example code here }} {{ Add example description here }}
-PARAMETERS # -Force # Redownload and overwrite packages even if the files already exist in the target path.</description></item><item><title>Set-LSUClientConfiguration</title><link>https://jantari.github.io/LSUClient-docs/docs/cmdlets/set-lsuclientconfiguration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/cmdlets/set-lsuclientconfiguration/</guid><description>Set-LSUClientConfiguration # SYNOPSIS # SYNTAX # Whole (Default) # Set-LSUClientConfiguration [-InputObject] &amp;lt;LSUClientConfiguration&amp;gt; [&amp;lt;CommonParameters&amp;gt;] Individual # Set-LSUClientConfiguration [-Proxy &amp;lt;Uri&amp;gt;] [-ProxyCredential &amp;lt;PSCredential&amp;gt;] [-ProxyUseDefaultCredential &amp;lt;Boolean&amp;gt;] [-MaxExternalDetectionRuntime &amp;lt;TimeSpan&amp;gt;] [-MaxExtractRuntime &amp;lt;TimeSpan&amp;gt;] [-MaxInstallerRuntime &amp;lt;TimeSpan&amp;gt;] [&amp;lt;CommonParameters&amp;gt;] DESCRIPTION # Sets global configuration options for LSUClient that may affect multiple cmdlets.
-EXAMPLES # EXAMPLE 1 # # Disable the default MaxExternalDetectionRuntime PS&amp;gt; Set-LSUClientConfiguration -MaxExternalDetectionRuntime ([TimeSpan]::Zero) EXAMPLE 2 # # Set a maximum allowed installer runtime of 20 minutes PS&amp;gt; Set-LSUClientConfiguration -MaxInstallerRuntime (New-TimeSpan -Minutes 20) EXAMPLE 3 # # Disable a previously configured Proxy PS&amp;gt; Set-LSUClientConfiguration -Proxy $null EXAMPLE 4 # # Apply a previously saved or edited configuration PS&amp;gt; $config = Get-LSUClientConfiguration PS&amp;gt; # .</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Introduction on LSUClient Documentation</title><link>https://jantari.github.io/LSUClient-docs/</link><description>Recent content in Introduction on LSUClient Documentation</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://jantari.github.io/LSUClient-docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/examples/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/examples/</guid><description>&lt;h1 id="getting-started">
+ Getting Started
+ &lt;a class="anchor" href="#getting-started">#&lt;/a>
+&lt;/h1>
+&lt;p>LSUClient has two main cmdlets: &lt;code>Get-LSUpdate&lt;/code> and &lt;code>Install-LSUpdate&lt;/code> - they basically do what their name implies!&lt;/p>
+&lt;p>These are some examples to get started with.
+To see all available parameters of each cmdlet and guidance on how to use them either see the online
+&lt;strong>Cmdlet Reference&lt;/strong> in the navigation bar on the left or install the module and use &lt;code>Get-Help -Detailed&lt;/code>
+or tab-completion to explore the cmdlets.&lt;/p></description></item><item><title/><link>https://jantari.github.io/LSUClient-docs/docs/topics/best-practices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/best-practices/</guid><description>&lt;h1 id="best-practices">
+ Best Practices
+ &lt;a class="anchor" href="#best-practices">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="1-search-for-and-install-updates-a-few-times-in-a-loop">
+ 1. Search for and install updates a few times in a loop
+ &lt;a class="anchor" href="#1-search-for-and-install-updates-a-few-times-in-a-loop">#&lt;/a>
+&lt;/h2>
+&lt;p>Some packages and updates depend on others already being installed, so they might not show up during the first search for updates.
+If you want to make sure &amp;ldquo;everything&amp;rdquo; has been installed and/or updated it is best to re-run
+&lt;code>Get-LSUpdate&lt;/code> and &lt;code>Install-LSUpdate&lt;/code> a few times or until no more updates are found.&lt;/p></description></item><item><title>BIOS/UEFI and Firmware Updates</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/bios-and-firmware/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/bios-and-firmware/</guid><description>&lt;h1 id="biosuefi-and-other-firmware-updates">
+ BIOS/UEFI and other Firmware Updates
+ &lt;a class="anchor" href="#biosuefi-and-other-firmware-updates">#&lt;/a>
+&lt;/h1>
+&lt;p>LSUClient will install BIOS/UEFI updates silently when possible.&lt;/p>
+&lt;p>Like with any other package, those for which a silent installation is supported will have their
+&lt;code>.Installer.Unattended&lt;/code> property set to &lt;code>$True&lt;/code>. If you get a BIOS/UEFI update for which
+&lt;code>.Installer.Unattended&lt;/code> is &lt;code>$False&lt;/code>, that means it uses a type of installer/flasher for which
+either no silent install options exist or for which LSUClient doesn&amp;rsquo;t support performing silent installs yet.&lt;/p></description></item><item><title>Troubleshooting Hanging Processes</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/hanging-processes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/hanging-processes/</guid><description>&lt;h1 id="hanging-processes">
+ Hanging processes
+ &lt;a class="anchor" href="#hanging-processes">#&lt;/a>
+&lt;/h1>
+&lt;p>By nature, LSUClient has to run and wait on external processes such as hardware-detection routines or driver installers to complete.&lt;/p>
+&lt;p>The executables and installers Lenovo bundles in their packages are generally designed to run silently and without user interaction.
+This means LSUClient can just execute these processes, wait for them to complete and then continue. However, it is unfortunately
+sometimes the case that a process LSUClient is waiting on gets stuck indefinitely and never exits on its own.&lt;/p></description></item><item><title>Self-Hosted Repositories</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/self-hosted-repositories/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/self-hosted-repositories/</guid><description>&lt;h1 id="self-hosted-repositories">
+ Self-Hosted Repositories
+ &lt;a class="anchor" href="#self-hosted-repositories">#&lt;/a>
+&lt;/h1>
+&lt;p>By default LSUClient fetches packages from the official, public Lenovo Update Catalog at &lt;a href="https://download.lenovo.com/catalog">https://download.lenovo.com/catalog&lt;/a>.
+However, just like System Update, it also supports custom, self-hosted package repositories.&lt;/p>
+&lt;p>It is currently not possible to &lt;strong>create&lt;/strong> or &lt;strong>manage&lt;/strong> such a custom package repository with LSUClient.
+Self-hosted repositories must either be created with the &amp;ldquo;Lenovo Update Retriever&amp;rdquo; program or finagled in
+place manually or with your own scripts if you understand the structure (see &lt;a href="#repository-formats">repository formats&lt;/a>).&lt;/p></description></item><item><title/><link>https://jantari.github.io/LSUClient-docs/docs/topics/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/versioning/</guid><description>&lt;h1 id="versioning">
+ Versioning
+ &lt;a class="anchor" href="#versioning">#&lt;/a>
+&lt;/h1>
+&lt;p>LSUClient uses a three-part version number MAJOR.MINOR.PATCH and follows &lt;a href="https://semver.org/spec/v2.0.0.html">SemVer 2.0.0&lt;/a>.&lt;/p>
+&lt;p>This means you can generally expect all your scripts and integrations to keep working with any one major version (such as 1.x.x).&lt;/p>
+&lt;p>There is only ever one current release of LSUClient, there is no parallel maintenance of older releases or prior versions.
+As soon as a new release is out the prior one is obsoleted.&lt;/p>
+&lt;h2 id="what-is-and-isnt-covered-by-the-semantic-versioning-promise">
+ What is and isn&amp;rsquo;t covered by the semantic versioning promise
+ &lt;a class="anchor" href="#what-is-and-isnt-covered-by-the-semantic-versioning-promise">#&lt;/a>
+&lt;/h2>
+&lt;p>Semantic versioning communicates changes in a softwares &amp;ldquo;public API&amp;rdquo;.&lt;/p></description></item><item><title>Expand-LSUpdate</title><link>https://jantari.github.io/LSUClient-docs/docs/cmdlets/expand-lsupdate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/cmdlets/expand-lsupdate/</guid><description>&lt;h1 id="expand-lsupdate">
+ Expand-LSUpdate
+ &lt;a class="anchor" href="#expand-lsupdate">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="synopsis">
+ SYNOPSIS
+ &lt;a class="anchor" href="#synopsis">#&lt;/a>
+&lt;/h2>
+&lt;p>Extracts package installers.&lt;/p>
+&lt;h2 id="syntax">
+ SYNTAX
+ &lt;a class="anchor" href="#syntax">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code>Expand-LSUpdate [-Package] &amp;lt;PSObject&amp;gt; [-Path &amp;lt;DirectoryInfo&amp;gt;] [-ProgressAction &amp;lt;ActionPreference&amp;gt;]
+ [&amp;lt;CommonParameters&amp;gt;]
+&lt;/code>&lt;/pre>&lt;h2 id="description">
+ DESCRIPTION
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;p>Extracts package installers.&lt;/p>
+&lt;h2 id="examples">
+ EXAMPLES
+ &lt;a class="anchor" href="#examples">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="example-1">
+ Example 1
+ &lt;a class="anchor" href="#example-1">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">PS &lt;/span>&lt;span class="n">C:&lt;/span>&lt;span class="p">\&amp;gt;&lt;/span> &lt;span class="p">{{&lt;/span> &lt;span class="n">Add&lt;/span> &lt;span class="n">example&lt;/span> &lt;span class="n">code&lt;/span> &lt;span class="n">here&lt;/span> &lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>{{ Add example description here }}&lt;/p>
+&lt;h2 id="parameters">
+ PARAMETERS
+ &lt;a class="anchor" href="#parameters">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="-package">
+ -Package
+ &lt;a class="anchor" href="#-package">#&lt;/a>
+&lt;/h3>
+&lt;p>The Lenovo package or packages whose installer to extract&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">Type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">PSObject&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Parameter Sets&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">(All)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Aliases&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Required&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Position&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Default value&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">None&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Accept pipeline input&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">(ByValue)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Accept wildcard characters&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="-path">
+ -Path
+ &lt;a class="anchor" href="#-path">#&lt;/a>
+&lt;/h3>
+&lt;p>The directory containing the previously downloaded packages.
+Use `Save-LSUpdate` to download packages.&lt;/p></description></item><item><title>Get-LSUClientConfiguration</title><link>https://jantari.github.io/LSUClient-docs/docs/cmdlets/get-lsuclientconfiguration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/cmdlets/get-lsuclientconfiguration/</guid><description>&lt;h1 id="get-lsuclientconfiguration">
+ Get-LSUClientConfiguration
+ &lt;a class="anchor" href="#get-lsuclientconfiguration">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="synopsis">
+ SYNOPSIS
+ &lt;a class="anchor" href="#synopsis">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="syntax">
+ SYNTAX
+ &lt;a class="anchor" href="#syntax">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code>Get-LSUClientConfiguration [-ProgressAction &amp;lt;ActionPreference&amp;gt;] [&amp;lt;CommonParameters&amp;gt;]
+&lt;/code>&lt;/pre>&lt;h2 id="description">
+ DESCRIPTION
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;p>Returns the currently active configuration options&lt;/p>
+&lt;h2 id="examples">
+ EXAMPLES
+ &lt;a class="anchor" href="#examples">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="example-1">
+ Example 1
+ &lt;a class="anchor" href="#example-1">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">PS &lt;/span>&lt;span class="n">C:&lt;/span>&lt;span class="p">\&amp;gt;&lt;/span> &lt;span class="p">{{&lt;/span> &lt;span class="n">Add&lt;/span> &lt;span class="n">example&lt;/span> &lt;span class="n">code&lt;/span> &lt;span class="n">here&lt;/span> &lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>{{ Add example description here }}&lt;/p>
+&lt;h2 id="parameters">
+ PARAMETERS
+ &lt;a class="anchor" href="#parameters">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="-progressaction">
+ -ProgressAction
+ &lt;a class="anchor" href="#-progressaction">#&lt;/a>
+&lt;/h3>
+&lt;p>{{ Fill ProgressAction Description }}&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">Type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ActionPreference&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Parameter Sets&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">(All)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Aliases&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">proga&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Required&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Position&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Named&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Default value&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">None&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Accept pipeline input&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">Accept wildcard characters&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="commonparameters">
+ CommonParameters
+ &lt;a class="anchor" href="#commonparameters">#&lt;/a>
+&lt;/h3>
+&lt;p>This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see &lt;a href="http://go.microsoft.com/fwlink/?LinkID=113216">about_CommonParameters&lt;/a>.&lt;/p></description></item><item><title>Get-LSUpdate</title><link>https://jantari.github.io/LSUClient-docs/docs/cmdlets/get-lsupdate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/cmdlets/get-lsupdate/</guid><description>&lt;h1 id="get-lsupdate">
+ Get-LSUpdate
+ &lt;a class="anchor" href="#get-lsupdate">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="synopsis">
+ SYNOPSIS
+ &lt;a class="anchor" href="#synopsis">#&lt;/a>
+&lt;/h2>
+&lt;p>Fetches available driver packages and updates for Lenovo computers&lt;/p>
+&lt;h2 id="syntax">
+ SYNTAX
+ &lt;a class="anchor" href="#syntax">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code>Get-LSUpdate [[-Model] &amp;lt;String&amp;gt;] [[-Proxy] &amp;lt;Uri&amp;gt;] [[-ProxyCredential] &amp;lt;PSCredential&amp;gt;]
+ [-ProxyUseDefaultCredentials] [-All] [-IncludePhantomDevices] [[-ScratchDirectory] &amp;lt;DirectoryInfo&amp;gt;]
+ [[-Repository] &amp;lt;String&amp;gt;] [[-MachineCharacteristicsOverride] &amp;lt;Hashtable&amp;gt;] [-NoTestApplicable]
+ [-NoTestInstalled] [-NoTestSeverityOverride] [-FailUnsupportedDependencies] [-PassUnsupportedInstallTests]
+ [-ProgressAction &amp;lt;ActionPreference&amp;gt;] [&amp;lt;CommonParameters&amp;gt;]
+&lt;/code>&lt;/pre>&lt;h2 id="description">
+ DESCRIPTION
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;p>Fetches available driver packages and updates for Lenovo computers&lt;/p>
+&lt;h2 id="examples">
+ EXAMPLES
+ &lt;a class="anchor" href="#examples">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="example-1">
+ EXAMPLE 1
+ &lt;a class="anchor" href="#example-1">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code># Get available updates for the local computer
+PS&amp;gt; Get-LSUpdate
+&lt;/code>&lt;/pre>&lt;h3 id="example-2">
+ EXAMPLE 2
+ &lt;a class="anchor" href="#example-2">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code># Get all available packages for a different computer model
+PS&amp;gt; Get-LSUpdate -Model 20K70000GE -All
+&lt;/code>&lt;/pre>&lt;h2 id="parameters">
+ PARAMETERS
+ &lt;a class="anchor" href="#parameters">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="-all">
+ -All
+ &lt;a class="anchor" href="#-all">#&lt;/a>
+&lt;/h3>
+&lt;p>Return all packages, regardless of whether they are applicable to this specific machine or whether they are already installed.
+E.g.
+this will return LTE-Modem drivers even on machines that do not have the optional LTE-Modem installed, or 32-bit drivers
+on a 64-bit OS.
+Attempting to install such inapplicable drivers will likely fail.
+Re-installing an already installed driver can
+sometimes be useful to fix a driver that got corrupted.&lt;/p></description></item><item><title>Install-LSUpdate</title><link>https://jantari.github.io/LSUClient-docs/docs/cmdlets/install-lsupdate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/cmdlets/install-lsupdate/</guid><description>&lt;h1 id="install-lsupdate">
+ Install-LSUpdate
+ &lt;a class="anchor" href="#install-lsupdate">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="synopsis">
+ SYNOPSIS
+ &lt;a class="anchor" href="#synopsis">#&lt;/a>
+&lt;/h2>
+&lt;p>Installs a Lenovo update package.
+Downloads it if not previously downloaded.&lt;/p>
+&lt;h2 id="syntax">
+ SYNTAX
+ &lt;a class="anchor" href="#syntax">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code>Install-LSUpdate [-Package] &amp;lt;PSObject&amp;gt; [-Path &amp;lt;DirectoryInfo&amp;gt;] [-SaveBIOSUpdateInfoToRegistry] [-Proxy &amp;lt;Uri&amp;gt;]
+ [-ProxyCredential &amp;lt;PSCredential&amp;gt;] [-ProxyUseDefaultCredentials] [-ProgressAction &amp;lt;ActionPreference&amp;gt;]
+ [&amp;lt;CommonParameters&amp;gt;]
+&lt;/code>&lt;/pre>&lt;h2 id="description">
+ DESCRIPTION
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;p>Installs a Lenovo update package.
+Downloads it if not previously downloaded.&lt;/p>
+&lt;h2 id="examples">
+ EXAMPLES
+ &lt;a class="anchor" href="#examples">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="example-1">
+ Example 1
+ &lt;a class="anchor" href="#example-1">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">PS &lt;/span>&lt;span class="n">C:&lt;/span>&lt;span class="p">\&amp;gt;&lt;/span> &lt;span class="p">{{&lt;/span> &lt;span class="n">Add&lt;/span> &lt;span class="n">example&lt;/span> &lt;span class="n">code&lt;/span> &lt;span class="n">here&lt;/span> &lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>{{ Add example description here }}&lt;/p>
+&lt;h2 id="parameters">
+ PARAMETERS
+ &lt;a class="anchor" href="#parameters">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="-package">
+ -Package
+ &lt;a class="anchor" href="#-package">#&lt;/a>
+&lt;/h3>
+&lt;p>The Lenovo package object to install&lt;/p></description></item><item><title>Save-LSUpdate</title><link>https://jantari.github.io/LSUClient-docs/docs/cmdlets/save-lsupdate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/cmdlets/save-lsupdate/</guid><description>&lt;h1 id="save-lsupdate">
+ Save-LSUpdate
+ &lt;a class="anchor" href="#save-lsupdate">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="synopsis">
+ SYNOPSIS
+ &lt;a class="anchor" href="#synopsis">#&lt;/a>
+&lt;/h2>
+&lt;p>Downloads Lenovo update packages to disk&lt;/p>
+&lt;h2 id="syntax">
+ SYNTAX
+ &lt;a class="anchor" href="#syntax">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code>Save-LSUpdate [-Package] &amp;lt;PSObject&amp;gt; [-Proxy &amp;lt;Uri&amp;gt;] [-ProxyCredential &amp;lt;PSCredential&amp;gt;]
+ [-ProxyUseDefaultCredentials] [-ShowProgress] [-Force] [-Path &amp;lt;DirectoryInfo&amp;gt;]
+ [-ProgressAction &amp;lt;ActionPreference&amp;gt;] [&amp;lt;CommonParameters&amp;gt;]
+&lt;/code>&lt;/pre>&lt;h2 id="description">
+ DESCRIPTION
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;p>Downloads Lenovo update packages to disk&lt;/p>
+&lt;h2 id="examples">
+ EXAMPLES
+ &lt;a class="anchor" href="#examples">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="example-1">
+ Example 1
+ &lt;a class="anchor" href="#example-1">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">PS &lt;/span>&lt;span class="n">C:&lt;/span>&lt;span class="p">\&amp;gt;&lt;/span> &lt;span class="p">{{&lt;/span> &lt;span class="n">Add&lt;/span> &lt;span class="n">example&lt;/span> &lt;span class="n">code&lt;/span> &lt;span class="n">here&lt;/span> &lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>{{ Add example description here }}&lt;/p>
+&lt;h2 id="parameters">
+ PARAMETERS
+ &lt;a class="anchor" href="#parameters">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="-force">
+ -Force
+ &lt;a class="anchor" href="#-force">#&lt;/a>
+&lt;/h3>
+&lt;p>Redownload and overwrite packages even if the files already exist in the target path.&lt;/p></description></item><item><title>Set-LSUClientConfiguration</title><link>https://jantari.github.io/LSUClient-docs/docs/cmdlets/set-lsuclientconfiguration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/cmdlets/set-lsuclientconfiguration/</guid><description>&lt;h1 id="set-lsuclientconfiguration">
+ Set-LSUClientConfiguration
+ &lt;a class="anchor" href="#set-lsuclientconfiguration">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="synopsis">
+ SYNOPSIS
+ &lt;a class="anchor" href="#synopsis">#&lt;/a>
+&lt;/h2>
+&lt;h2 id="syntax">
+ SYNTAX
+ &lt;a class="anchor" href="#syntax">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="whole-default">
+ Whole (Default)
+ &lt;a class="anchor" href="#whole-default">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code>Set-LSUClientConfiguration [-InputObject] &amp;lt;LSUClientConfiguration&amp;gt; [-ProgressAction &amp;lt;ActionPreference&amp;gt;]
+ [&amp;lt;CommonParameters&amp;gt;]
+&lt;/code>&lt;/pre>&lt;h3 id="individual">
+ Individual
+ &lt;a class="anchor" href="#individual">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code>Set-LSUClientConfiguration [-Proxy &amp;lt;Uri&amp;gt;] [-ProxyCredential &amp;lt;PSCredential&amp;gt;]
+ [-ProxyUseDefaultCredential &amp;lt;Boolean&amp;gt;] [-MaxExternalDetectionRuntime &amp;lt;TimeSpan&amp;gt;]
+ [-MaxExtractRuntime &amp;lt;TimeSpan&amp;gt;] [-MaxInstallerRuntime &amp;lt;TimeSpan&amp;gt;] [-ProgressAction &amp;lt;ActionPreference&amp;gt;]
+ [&amp;lt;CommonParameters&amp;gt;]
+&lt;/code>&lt;/pre>&lt;h2 id="description">
+ DESCRIPTION
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h2>
+&lt;p>Sets global configuration options for LSUClient that may affect multiple cmdlets.&lt;/p>
+&lt;h2 id="examples">
+ EXAMPLES
+ &lt;a class="anchor" href="#examples">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="example-1">
+ EXAMPLE 1
+ &lt;a class="anchor" href="#example-1">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code># Disable the default MaxExternalDetectionRuntime
+PS&amp;gt; Set-LSUClientConfiguration -MaxExternalDetectionRuntime ([TimeSpan]::Zero)
+&lt;/code>&lt;/pre>&lt;h3 id="example-2">
+ EXAMPLE 2
+ &lt;a class="anchor" href="#example-2">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code># Set a maximum allowed installer runtime of 20 minutes
+PS&amp;gt; Set-LSUClientConfiguration -MaxInstallerRuntime (New-TimeSpan -Minutes 20)
+&lt;/code>&lt;/pre>&lt;h3 id="example-3">
+ EXAMPLE 3
+ &lt;a class="anchor" href="#example-3">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code># Disable a previously configured Proxy
+PS&amp;gt; Set-LSUClientConfiguration -Proxy $null
+&lt;/code>&lt;/pre>&lt;h3 id="example-4">
+ EXAMPLE 4
+ &lt;a class="anchor" href="#example-4">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code># Apply a previously saved or edited configuration
+PS&amp;gt; $config = Get-LSUClientConfiguration
+PS&amp;gt; # ...
+PS&amp;gt; $config | Set-LSUClientConfiguration
+&lt;/code>&lt;/pre>&lt;h2 id="parameters">
+ PARAMETERS
+ &lt;a class="anchor" href="#parameters">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="-inputobject">
+ -InputObject
+ &lt;a class="anchor" href="#-inputobject">#&lt;/a>
+&lt;/h3>
+&lt;p>Import and set all configuration options from an LSUClientConfiguration object.&lt;/p></description></item></channel></rss>

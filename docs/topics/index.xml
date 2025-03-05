@@ -1,9 +1,54 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Topics on LSUClient Documentation</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/</link><description>Recent content in Topics on LSUClient Documentation</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://jantari.github.io/LSUClient-docs/docs/topics/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/examples/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/examples/</guid><description>Getting Started # LSUClient has two main cmdlets: Get-LSUpdate and Install-LSUpdate - they basically do what their name implies!
-These are some examples to get started with. To see all available parameters of each cmdlet and guidance on how to use them either see the online Cmdlet Reference in the navigation bar on the left or install the module and use Get-Help -Detailed or tab-completion to explore the cmdlets.</description></item><item><title/><link>https://jantari.github.io/LSUClient-docs/docs/topics/best-practices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/best-practices/</guid><description>Best Practices # 1. Search for and install updates a few times in a loop # Some packages and updates depend on others already being installed, so they might not show up during the first search for updates. If you want to make sure &amp;ldquo;everything&amp;rdquo; has been installed and/or updated it is best to re-run Get-LSUpdate and Install-LSUpdate a few times or until no more updates are found.
-Example This is a minimal example implementation of this best practice for demonstration purposes:</description></item><item><title>BIOS/UEFI and Firmware Updates</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/bios-and-firmware/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/bios-and-firmware/</guid><description>BIOS/UEFI and other Firmware Updates # LSUClient will install BIOS/UEFI updates silently when possible.
-Like with any other package, those for which a silent installation is supported will have their .Installer.Unattended property set to $True. If you get a BIOS/UEFI update for which .Installer.Unattended is $False, that means it uses a type of installer/flasher for which either no silent install options exist or for which LSUClient doesn&amp;rsquo;t support performing silent installs yet.</description></item><item><title>Troubleshooting Hanging Processes</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/hanging-processes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/hanging-processes/</guid><description>Hanging processes # By nature, LSUClient has to run and wait on external processes such as hardware-detection routines or driver installers to complete.
-The executables and installers Lenovo bundles in their packages are generally designed to run silently and without user interaction. This means LSUClient can just execute these processes, wait for them to complete and then continue. However, it is unfortunately sometimes the case that a process LSUClient is waiting on gets stuck indefinitely and never exits on its own.</description></item><item><title>Self-Hosted Repositories</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/self-hosted-repositories/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/self-hosted-repositories/</guid><description>Self-Hosted Repositories # By default LSUClient fetches packages from the official, public Lenovo Update Catalog at https://download.lenovo.com/catalog. However, just like System Update, it also supports custom, self-hosted package repositories.
-It is currently not possible to create or manage such a custom package repository with LSUClient. Self-hosted repositories must either be created with the &amp;ldquo;Lenovo Update Retriever&amp;rdquo; program or finagled in place manually or with your own scripts if you understand the structure (see repository formats).</description></item><item><title/><link>https://jantari.github.io/LSUClient-docs/docs/topics/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/versioning/</guid><description>Versioning # LSUClient uses a three-part version number MAJOR.MINOR.PATCH and follows SemVer 2.0.0.
-This means you can generally expect all your scripts and integrations to keep working with any one major version (such as 1.x.x).
-There is only ever one current release of LSUClient, there is no parallel maintenance of older releases or prior versions. As soon as a new release is out the prior one is obsoleted.
-What is and isn&amp;rsquo;t covered by the semantic versioning promise # Semantic versioning communicates changes in a softwares &amp;ldquo;public API&amp;rdquo;.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Topics on LSUClient Documentation</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/</link><description>Recent content in Topics on LSUClient Documentation</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://jantari.github.io/LSUClient-docs/docs/topics/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/examples/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/examples/</guid><description>&lt;h1 id="getting-started">
+ Getting Started
+ &lt;a class="anchor" href="#getting-started">#&lt;/a>
+&lt;/h1>
+&lt;p>LSUClient has two main cmdlets: &lt;code>Get-LSUpdate&lt;/code> and &lt;code>Install-LSUpdate&lt;/code> - they basically do what their name implies!&lt;/p>
+&lt;p>These are some examples to get started with.
+To see all available parameters of each cmdlet and guidance on how to use them either see the online
+&lt;strong>Cmdlet Reference&lt;/strong> in the navigation bar on the left or install the module and use &lt;code>Get-Help -Detailed&lt;/code>
+or tab-completion to explore the cmdlets.&lt;/p></description></item><item><title/><link>https://jantari.github.io/LSUClient-docs/docs/topics/best-practices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/best-practices/</guid><description>&lt;h1 id="best-practices">
+ Best Practices
+ &lt;a class="anchor" href="#best-practices">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="1-search-for-and-install-updates-a-few-times-in-a-loop">
+ 1. Search for and install updates a few times in a loop
+ &lt;a class="anchor" href="#1-search-for-and-install-updates-a-few-times-in-a-loop">#&lt;/a>
+&lt;/h2>
+&lt;p>Some packages and updates depend on others already being installed, so they might not show up during the first search for updates.
+If you want to make sure &amp;ldquo;everything&amp;rdquo; has been installed and/or updated it is best to re-run
+&lt;code>Get-LSUpdate&lt;/code> and &lt;code>Install-LSUpdate&lt;/code> a few times or until no more updates are found.&lt;/p></description></item><item><title>BIOS/UEFI and Firmware Updates</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/bios-and-firmware/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/bios-and-firmware/</guid><description>&lt;h1 id="biosuefi-and-other-firmware-updates">
+ BIOS/UEFI and other Firmware Updates
+ &lt;a class="anchor" href="#biosuefi-and-other-firmware-updates">#&lt;/a>
+&lt;/h1>
+&lt;p>LSUClient will install BIOS/UEFI updates silently when possible.&lt;/p>
+&lt;p>Like with any other package, those for which a silent installation is supported will have their
+&lt;code>.Installer.Unattended&lt;/code> property set to &lt;code>$True&lt;/code>. If you get a BIOS/UEFI update for which
+&lt;code>.Installer.Unattended&lt;/code> is &lt;code>$False&lt;/code>, that means it uses a type of installer/flasher for which
+either no silent install options exist or for which LSUClient doesn&amp;rsquo;t support performing silent installs yet.&lt;/p></description></item><item><title>Troubleshooting Hanging Processes</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/hanging-processes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/hanging-processes/</guid><description>&lt;h1 id="hanging-processes">
+ Hanging processes
+ &lt;a class="anchor" href="#hanging-processes">#&lt;/a>
+&lt;/h1>
+&lt;p>By nature, LSUClient has to run and wait on external processes such as hardware-detection routines or driver installers to complete.&lt;/p>
+&lt;p>The executables and installers Lenovo bundles in their packages are generally designed to run silently and without user interaction.
+This means LSUClient can just execute these processes, wait for them to complete and then continue. However, it is unfortunately
+sometimes the case that a process LSUClient is waiting on gets stuck indefinitely and never exits on its own.&lt;/p></description></item><item><title>Self-Hosted Repositories</title><link>https://jantari.github.io/LSUClient-docs/docs/topics/self-hosted-repositories/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/self-hosted-repositories/</guid><description>&lt;h1 id="self-hosted-repositories">
+ Self-Hosted Repositories
+ &lt;a class="anchor" href="#self-hosted-repositories">#&lt;/a>
+&lt;/h1>
+&lt;p>By default LSUClient fetches packages from the official, public Lenovo Update Catalog at &lt;a href="https://download.lenovo.com/catalog">https://download.lenovo.com/catalog&lt;/a>.
+However, just like System Update, it also supports custom, self-hosted package repositories.&lt;/p>
+&lt;p>It is currently not possible to &lt;strong>create&lt;/strong> or &lt;strong>manage&lt;/strong> such a custom package repository with LSUClient.
+Self-hosted repositories must either be created with the &amp;ldquo;Lenovo Update Retriever&amp;rdquo; program or finagled in
+place manually or with your own scripts if you understand the structure (see &lt;a href="#repository-formats">repository formats&lt;/a>).&lt;/p></description></item><item><title/><link>https://jantari.github.io/LSUClient-docs/docs/topics/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jantari.github.io/LSUClient-docs/docs/topics/versioning/</guid><description>&lt;h1 id="versioning">
+ Versioning
+ &lt;a class="anchor" href="#versioning">#&lt;/a>
+&lt;/h1>
+&lt;p>LSUClient uses a three-part version number MAJOR.MINOR.PATCH and follows &lt;a href="https://semver.org/spec/v2.0.0.html">SemVer 2.0.0&lt;/a>.&lt;/p>
+&lt;p>This means you can generally expect all your scripts and integrations to keep working with any one major version (such as 1.x.x).&lt;/p>
+&lt;p>There is only ever one current release of LSUClient, there is no parallel maintenance of older releases or prior versions.
+As soon as a new release is out the prior one is obsoleted.&lt;/p>
+&lt;h2 id="what-is-and-isnt-covered-by-the-semantic-versioning-promise">
+ What is and isn&amp;rsquo;t covered by the semantic versioning promise
+ &lt;a class="anchor" href="#what-is-and-isnt-covered-by-the-semantic-versioning-promise">#&lt;/a>
+&lt;/h2>
+&lt;p>Semantic versioning communicates changes in a softwares &amp;ldquo;public API&amp;rdquo;.&lt;/p></description></item></channel></rss>
