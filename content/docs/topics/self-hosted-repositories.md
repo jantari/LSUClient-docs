@@ -35,9 +35,11 @@ The webserver must accept GET and HEAD requests.
 POST, PUT or any other methods are not required and can be disabled or blocked.
 
 Example of retrieving packages from an internal webserver:
+{{< render-markdown >}}
 ```powershell
 Get-LSUpdate -Repository 'https://pkgs.domain.tld/lenovo-drivers'
 ```
+{{< /render-markdown >}}
 {{< /tab >}}
 {{< tab "Filesystem-based repository" >}}
 You can host your custom repository via a Windows filesystem path, either local or via SMB using a network drive or UNC-path.
@@ -45,9 +47,11 @@ You can host your custom repository via a Windows filesystem path, either local 
 The user account running LSUClient must have read-access to the repository. Write or Modify access is not required.
 
 Example of retrieving packages from an internal fileserver:
+{{< render-markdown >}}
 ```powershell
 Get-LSUpdate -Repository '\\pkgs.domain.tld\lenovo-drivers$\'
 ```
+{{< /render-markdown >}}
 {{< /tab >}}
 {{< /tabs >}}
 

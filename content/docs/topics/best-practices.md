@@ -14,6 +14,7 @@ If you want to make sure "everything" has been installed and/or updated it is be
 
 This is a minimal example implementation of this best practice for demonstration purposes:
 
+{{< render-markdown >}}
 ```powershell {linenos=table}
 $MaxRounds = 3
 for ($Round = 1; $Round -le $MaxRounds; $Round++) {
@@ -29,6 +30,7 @@ for ($Round = 1; $Round -le $MaxRounds; $Round++) {
 }
 ```
 
+{{< /render-markdown >}}
 {{< /details >}}
 
 ## 2. Download all packages before starting to install any
@@ -42,6 +44,7 @@ Downloading all packages you intend to install beforehand with `Save-LSUpdate` w
 
 This is a minimal example implementation of this best practice for demonstration purposes:
 
+{{< render-markdown >}}
 ```powershell {linenos=table}
 # Find updates
 $updates = Get-LSUpdate
@@ -52,7 +55,7 @@ $updates | Save-LSUpdate
 # Then install
 $updates | Install-LSUpdate
 ```
-
+{{< /render-markdown >}}
 {{< /details >}}
 
 {{< hint info >}}
@@ -74,6 +77,7 @@ If you are intimately familiar with Lenovos package XML format, perhaps even the
 
 This is a minimal example implementation of this best practice for demonstration purposes:
 
+{{< render-markdown >}}
 ```powershell {linenos=table}
 Start-Transcript -LiteralPath "$env:TEMP\lsuclient_$(Get-Date -Format 'yyyyMMdd-HHmmss').log"
 
@@ -89,7 +93,7 @@ foreach ($update in $updates) {
 
 Stop-Transcript
 ```
-
+{{< /render-markdown >}}
 {{< /details >}}
 
 ## 4. Keep $ErrorActionPreference set to Continue
