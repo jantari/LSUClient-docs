@@ -13,3 +13,22 @@ theme = 'hugo-book'
 
 [menu]
 [[menu.after]]
+name = 'GitHub'
+pre = '<i class="fa-brands fa-github beat-on-hover"></i>'
+url = 'https://github.com/jantari/LSUClient'
+weight = 10
+[[menu.after]]
+name = 'Release Notes'
+pre = '<i class="fa-solid fa-list-ul beat-on-hover"></i>'
+url = 'https://github.com/jantari/LSUClient/releases'
+weight = 20
+[[menu.after]]
+name = 'PowerShell Gallery'
+pre = '<i class="fa-solid fa-terminal beat-on-hover"></i>'
+url = 'https://www.powershellgallery.com/packages/LSUClient/'
+weight = 30
+[[menu.after]]
+name = 'Hugo Book Theme'
+pre = '<i class="fa-solid fa-paint-roller beat-on-hover"></i>'
+url = 'https://github.com/alex-shpak/hugo-book'
+weight = 40

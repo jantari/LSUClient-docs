@@ -50,18 +50,12 @@ pre.chroma:focus {
 }
 
 // Animate once on hover-over
-.beat-on-hover:hover i {
-  -webkit-animation-name: fa-beat;
+a:hover > i.beat-on-hover {
   animation-name: fa-beat;
-  -webkit-animation-delay: var(--fa-animation-delay, 0s);
   animation-delay: var(--fa-animation-delay, 0s);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
   animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
   animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
-  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
   animation-timing-function: var(--fa-animation-timing, ease-in-out);
 }
 
